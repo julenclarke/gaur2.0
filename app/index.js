@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
+import Login from './components/Login'
 
 // Component is concerned about State, Lifecycle and UI
 // State
@@ -12,8 +13,8 @@ import './index.css'
 class App extends React.Component {
   render() {
     return (
-      <div>
-        Ongi etorri GAUR 2.0ra
+      <div className='container'>
+        <Login />
       </div>
     )
   }
