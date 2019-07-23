@@ -1,36 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Welcome () {
+function LanguagesNav ({ selected, onUpdateLanguage}) {
+  const languages = ['EU', 'ES', 'EN']
+
   return (
-    <div className='instructions-container'>
+    <div >
       <h1 className='center-text header-lg'>
         GAUR 2.0
       </h1>
-      <ol className='container-sm grid center-text battle-instructions'>
-        <li>
-          <h3 className='header-sm'>Enter two Github users</h3>
-        </li>
-        <li>
-          <h3 className='header-sm'>Battle</h3>
-        </li>
-        <li>
-          <h3 className='header-sm'>See the winners</h3>
-        </li>
-        <li>
-          <button
-            style={{fontSize: 30}}
-            className='btn-clear'
-            onClick={() => this.setState({
-              language: 'english'
-            })}
-          >
-            {language === 'euskara' ? 'Euskara' : 'English'}
-          </button>
-        </li>
-      </ol>
+      <ul className='flex-center'>
+        {languages.map((language) => (
+          <li key={language}>
+            <button
+              className='btn-clear nav-link'
+              style={language === selected ? { color: 'rgb(187, 46, 31)' } : null }
+              onClick={() => onUpdateLanguage(language)}>
+              {language}
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   )
+}
+
+LanguagesNav.propTypes = {
+  selected: PropTypes.string.isRequired,
+  onUpdateLanguage: PropTypes.func.isRequired
 }
 
 export default class Login extends React.Component {
@@ -38,15 +35,27 @@ export default class Login extends React.Component {
     super(props)
 
     this.state = {
-      language: 'euskara'
+      selectedLanguage: 'EU'
     }
-  }
 
+    this.updateLanguage = this.updateLanguage.bind(this)
+  }
+  componentDidMount () {
+    this.updateLanguage(this.state.selectedLanguage)
+  }
+  updateLanguage (selectedLanguage) {
+    this.setState({
+      selectedLanguage
+    })
+  }
   render() {
+    const { selectedLanguage } = this.state
     return (
       <React.Fragment>
-        <Welcome />
-
+        <LanguagesNav
+          selected={selectedLanguage}
+          onUpdateLanguage={this.updateLanguage}
+        />
         <form className='column player'>
           <label htmlFor='username' className='player-label'>
             Sartu GAUR 2.0ra
@@ -59,6 +68,17 @@ export default class Login extends React.Component {
               placeholder='Erabiltzailea'
               autoComplete='off'
             />
+          </div>
+          <div className='row player-inputs'>
+            <input
+              type='password'
+              id='username'
+              className='input-light'
+              placeholder='Pasahitza'
+              autoComplete='off'
+            />
+          </div>
+          <div className='row player-inputs'>
             <button
               className='btn dark-btn'
               type='submit'
