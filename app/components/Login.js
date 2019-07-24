@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { languagedata } from './Languages'
+import languagesdata from '../languagesdata.json'
 
 function LanguagesNav ({ selected, onUpdateLanguage}) {
   const languages = ['EU', 'ES', 'EN']
@@ -58,7 +60,7 @@ export default class Login extends React.Component {
         />
         <form className='column player'>
           <label htmlFor='username' className='player-label'>
-            Sartu GAUR 2.0ra
+            { languagesdata.data }
           </label>
           <div className='row player-inputs'>
             <input
