@@ -1,16 +1,18 @@
-[
-  {
-    "euskara": {
-      "welcome": "Sartu GAUR 2.0ra",
-      "login": "Sartu"
-    },
-    "español": {
-      "welcome": "Entra a GAUR 2.0",
-      "login": "Entrar"
-    },
-    "english":{
-      "welcome": "Log into GAUR 2.0",
-      "login": "Log in"
+{
+  "languages": [
+    {
+      "EU": {
+        "welcome": "Sartu GAUR 2.0ra",
+        "login": "Sartu"
+      },
+      "ES": {
+        "welcome": "Entra a GAUR 2.0",
+        "login": "Entrar"
+      },
+      "EN":{
+        "welcome": "Log into GAUR 2.0",
+        "login": "Log in"
+      }
     }
-  }
-]
+  ]
+}

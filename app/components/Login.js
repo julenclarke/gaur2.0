@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { languagedata } from './Languages'
 import languagesdata from '../languagesdata.json'
+import { fetchPopularRepos } from '../utils/api'
 
 function LanguagesNav ({ selected, onUpdateLanguage}) {
   const languages = ['EU', 'ES', 'EN']
@@ -37,21 +38,43 @@ export default class Login extends React.Component {
     super(props)
 
     this.state = {
-      selectedLanguage: 'EU'
+      selectedLanguage: 'EU',
+      repos: null,
+      error: null
     }
 
     this.updateLanguage = this.updateLanguage.bind(this)
+    this.isLoading = this.isLoading.bind(this)
   }
   componentDidMount () {
     this.updateLanguage(this.state.selectedLanguage)
   }
   updateLanguage (selectedLanguage) {
     this.setState({
-      selectedLanguage
+      selectedLanguage,
+      error: null,
+      repos: null
     })
+
+    fetchPopularRepos(selectedLanguage)
+      .then((repos) => this.setState({
+          repos,
+          error: null,
+      }))
+      .catch(() => {
+        console.warn('Error fetching repos: ', error)
+
+        this.setState({
+          error: 'There was an error fetching the repositories.'
+        })
+      })
+  }
+  isLoading() {
+    return this.state.repos === null && this.state.error === null
   }
   render() {
-    const { selectedLanguage } = this.state
+    const { selectedLanguage, repos, error } = this.state
+
     return (
       <React.Fragment>
         <LanguagesNav
@@ -60,7 +83,9 @@ export default class Login extends React.Component {
         />
         <form className='column player'>
           <label htmlFor='username' className='player-label'>
-            { languagesdata.data }
+            {this.isLoading() && <p>LOADING...</p>}
+            {error && <p>{error}</p>}
+            {repos && <pre>{JSON.stringify(repos, null, 2)}</pre>}
           </label>
           <div className='row player-inputs'>
             <input
@@ -74,7 +99,7 @@ export default class Login extends React.Component {
           <div className='row player-inputs'>
             <input
               type='password'
-              id='username'
+              id='password'
               className='input-light'
               placeholder='Pasahitza'
               autoComplete='off'

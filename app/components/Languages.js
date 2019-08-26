@@ -1,4 +1,4 @@
-const languagedata = {
+export const languagedata = {
   "data": {
     "languages": [
       {
@@ -18,6 +18,8 @@ const languagedata = {
     ]
   }
 };
+
+
 
 /* const languages = {
   eu: {
