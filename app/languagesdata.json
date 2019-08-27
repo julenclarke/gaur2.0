@@ -1,15 +1,28 @@
 {
   "languages": [
     {
-      "EU": {
+      "lang": "EU",
+      "terms": {
+        "username": "Erabiltzailea",
+        "password": "Pasahitza",
         "welcome": "Sartu GAUR 2.0ra",
         "login": "Sartu"
-      },
-      "ES": {
+      }
+    },
+    {
+      "lang": "ES",
+      "terms": {
+        "username": "Usuario",
+        "password": "Contraseña",
         "welcome": "Entra a GAUR 2.0",
         "login": "Entrar"
-      },
-      "EN":{
+      }
+    },
+    {
+      "lang": "EN",
+      "terms": {
+        "password": "Password",
+        "username": "Username",
         "welcome": "Log into GAUR 2.0",
         "login": "Log in"
       }

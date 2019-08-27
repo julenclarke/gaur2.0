@@ -85,14 +85,14 @@ export default class Login extends React.Component {
           <label htmlFor='username' className='player-label'>
             {this.isLoading() && <p>LOADING...</p>}
             {error && <p>{error}</p>}
-            {repos && <pre>{JSON.stringify(repos, null, 2)}</pre>}
+            {repos && <pre>{JSON.stringify(repos[0], null, 2)}</pre>}
           </label>
           <div className='row player-inputs'>
             <input
               type='text'
               id='username'
               className='input-light'
-              placeholder='Erabiltzailea'
+              placeholder={repos}
               autoComplete='off'
             />
           </div>
