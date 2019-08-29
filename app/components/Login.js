@@ -33,6 +33,59 @@ LanguagesNav.propTypes = {
   onUpdateLanguage: PropTypes.func.isRequired
 }
 
+function LoginForm ({ repos, selectedLanguage }) {
+  var lang = {}
+  switch (selectedLanguage) {
+    case "EU":
+      selectedLanguage = "EU";
+      lang  = repos[0].terms;
+      break;
+    case "ES":
+      selectedLanguage = "ES";
+      lang = repos[1].terms;
+      break;
+    case "EN":
+      selectedLanguage = "EN";
+      lang = repos[2].terms;
+      break;
+  }
+
+  return (
+    <form className='column player'>
+      <div className='row player-inputs'>
+        <input
+          type='text'
+          id='username'
+          className='input-light'
+          placeholder={lang.username}
+          autoComplete='off'
+        />
+      </div>
+      <div className='row player-inputs'>
+        <input
+          type='password'
+          id='password'
+          className='input-light'
+          placeholder={lang.password}
+          autoComplete='off'
+        />
+      </div>
+      <div className='row player-inputs'>
+        <button
+          className='btn dark-btn'
+          type='submit'
+        >
+          {lang.login}
+        </button>
+      </div>
+    </form>
+  )
+}
+
+LoginForm.propTypes = {
+  repos: PropTypes.array.isRequired
+}
+
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -81,41 +134,14 @@ export default class Login extends React.Component {
           selected={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
         />
-        <form className='column player'>
-          <label htmlFor='username' className='player-label'>
-            {this.isLoading() && <p>LOADING...</p>}
-            {error && <p>{error}</p>}
-            {repos && <pre>{JSON.stringify(repos[0], null, 2)}</pre>}
-          </label>
-          <div className='row player-inputs'>
-            <input
-              type='text'
-              id='username'
-              className='input-light'
-              placeholder={repos}
-              autoComplete='off'
-            />
-          </div>
-          <div className='row player-inputs'>
-            <input
-              type='password'
-              id='password'
-              className='input-light'
-              placeholder='Pasahitza'
-              autoComplete='off'
-            />
-          </div>
-          <div className='row player-inputs'>
-            <button
-              className='btn dark-btn'
-              type='submit'
-            >
-              Sartu
-            </button>
-          </div>
-        </form>
+
+        {this.isLoading() && <p>LOADING...</p>}
+
+        {error && <p>{error}</p>}
+
+        {repos && <LoginForm repos={repos} selectedLanguage={selectedLanguage} />}
+
       </React.Fragment>
     )
   }
-
 }

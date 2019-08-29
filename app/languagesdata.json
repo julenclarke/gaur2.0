@@ -1,7 +1,7 @@
 {
   "languages": [
     {
-      "lang": "EU",
+      "language": "EU",
       "terms": {
         "username": "Erabiltzailea",
         "password": "Pasahitza",
@@ -10,7 +10,7 @@
       }
     },
     {
-      "lang": "ES",
+      "language": "ES",
       "terms": {
         "username": "Usuario",
         "password": "Contraseña",
@@ -19,7 +19,7 @@
       }
     },
     {
-      "lang": "EN",
+      "language": "EN",
       "terms": {
         "password": "Password",
         "username": "Username",
