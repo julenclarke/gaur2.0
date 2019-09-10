@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { languagedata } from './Languages'
 import languagesdata from '../languagesdata.json'
 import { fetchPopularRepos } from '../utils/api'
+import Dashboard from './Dashboard'
 
 function LanguagesNav ({ selected, onUpdateLanguage}) {
   const languages = ['EU', 'ES', 'EN']
@@ -33,20 +34,20 @@ LanguagesNav.propTypes = {
   onUpdateLanguage: PropTypes.func.isRequired
 }
 
-function LoginForm ({ repos, selectedLanguage }) {
-  var lang = {}
-  switch (selectedLanguage) {
+function LoginForm ({ repos, selected, dashboard, onUpdateLogin }) {
+  var language = {}
+  switch (selected) {
     case "EU":
-      selectedLanguage = "EU";
-      lang  = repos[0].terms;
+      selected = "EU";
+      language  = repos[0].terms;
       break;
     case "ES":
-      selectedLanguage = "ES";
-      lang = repos[1].terms;
+      selected = "ES";
+      language = repos[1].terms;
       break;
     case "EN":
-      selectedLanguage = "EN";
-      lang = repos[2].terms;
+      selected = "EN";
+      language = repos[2].terms;
       break;
   }
 
@@ -57,7 +58,7 @@ function LoginForm ({ repos, selectedLanguage }) {
           type='text'
           id='username'
           className='input-light'
-          placeholder={lang.username}
+          placeholder={language.username}
           autoComplete='off'
         />
       </div>
@@ -66,7 +67,7 @@ function LoginForm ({ repos, selectedLanguage }) {
           type='password'
           id='password'
           className='input-light'
-          placeholder={lang.password}
+          placeholder={language.password}
           autoComplete='off'
         />
       </div>
@@ -74,8 +75,9 @@ function LoginForm ({ repos, selectedLanguage }) {
         <button
           className='btn dark-btn'
           type='submit'
+          onClick={() => {onUpdateLogin(`${dashboard}`)}}
         >
-          {lang.login}
+          {language.login}
         </button>
       </div>
     </form>
@@ -93,11 +95,12 @@ export default class Login extends React.Component {
     this.state = {
       selectedLanguage: 'EU',
       repos: null,
-      error: null
+      error: null,
+      dashboard: false
     }
 
     this.updateLanguage = this.updateLanguage.bind(this)
-    this.isLoading = this.isLoading.bind(this)
+    this.updateLogin = this.updateLogin.bind(this)
   }
   componentDidMount () {
     this.updateLanguage(this.state.selectedLanguage)
@@ -106,7 +109,8 @@ export default class Login extends React.Component {
     this.setState({
       selectedLanguage,
       error: null,
-      repos: null
+      repos: null,
+      dashboard: false
     })
 
     fetchPopularRepos(selectedLanguage)
@@ -122,11 +126,21 @@ export default class Login extends React.Component {
         })
       })
   }
-  isLoading() {
-    return this.state.repos === null && this.state.error === null
+  updateLogin (dashboard) {
+    this.setState({
+      error: null,
+      repos: null,
+      dashboard: true
+    })
   }
   render() {
-    const { selectedLanguage, repos, error } = this.state
+    const { selectedLanguage, repos, error, dashboard } = this.state
+
+    if (dashboard === true) {
+      return (
+        <Dashboard />
+      )
+    }
 
     return (
       <React.Fragment>
@@ -135,11 +149,9 @@ export default class Login extends React.Component {
           onUpdateLanguage={this.updateLanguage}
         />
 
-        {this.isLoading() && <p>LOADING...</p>}
-
         {error && <p>{error}</p>}
 
-        {repos && <LoginForm repos={repos} selectedLanguage={selectedLanguage} />}
+        {repos && <LoginForm repos={repos} selected={selectedLanguage} dashboard={dashboard} onUpdateLogin={this.updateLogin} />}
 
       </React.Fragment>
     )
