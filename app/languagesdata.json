@@ -6,7 +6,16 @@
         "username": "Erabiltzailea",
         "password": "Pasahitza",
         "welcome": "Sartu GAUR 2.0ra",
-        "login": "Sartu"
+        "login": "Sartu",
+        "studyplan": "Ikasketa-planak",
+        "careers": "Lan Mundura Trantsizioa bekak",
+        "census": "Errolda",
+        "sms": "SMS Zerbitzua",
+        "tuitions": "Matrikulak",
+        "surveys": "Inkestak",
+        "titles": "Tituluak",
+        "exams": "Azterketak",
+        "record": "Espedienteak"
       }
     },
     {
@@ -15,8 +24,18 @@
         "username": "Usuario",
         "password": "Contraseña",
         "welcome": "Entra a GAUR 2.0",
-        "login": "Entrar"
+        "login": "Entrar",
+        "studyplan": "Plan de estudios",
+        "careers": "Becas a",
+        "census": "Censo",
+        "sms": "Servicio SMS",
+        "tuitions": "Matrículas",
+        "surveys": "Encuestas",
+        "titles": "Títulos",
+        "exams": "Exámenes",
+        "record": "Expedientes"
       }
+
     },
     {
       "language": "EN",
@@ -24,7 +43,16 @@
         "password": "Password",
         "username": "Username",
         "welcome": "Log into GAUR 2.0",
-        "login": "Log in"
+        "login": "Log in",
+        "studyplan": "Study plan",
+        "careers": "Careers",
+        "census": "Census",
+        "sms": "SMS Service",
+        "tuitions": "Tuitions",
+        "surveys": "Surveys",
+        "titles": "Titles",
+        "exams": "Exams",
+        "record": "Record"
       }
     }
   ]

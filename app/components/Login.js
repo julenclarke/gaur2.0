@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { languagedata } from './Languages'
 import languagesdata from '../languagesdata.json'
-import { fetchPopularRepos } from '../utils/api'
+import { fetchLanguageRepos } from '../utils/api'
 import Dashboard from './Dashboard'
 
 function LanguagesNav ({ selected, onUpdateLanguage}) {
@@ -101,6 +101,7 @@ export default class Login extends React.Component {
 
     this.updateLanguage = this.updateLanguage.bind(this)
     this.updateLogin = this.updateLogin.bind(this)
+
   }
   componentDidMount () {
     this.updateLanguage(this.state.selectedLanguage)
@@ -108,12 +109,10 @@ export default class Login extends React.Component {
   updateLanguage (selectedLanguage) {
     this.setState({
       selectedLanguage,
-      error: null,
-      repos: null,
-      dashboard: false
+      error: null
     })
 
-    fetchPopularRepos(selectedLanguage)
+    fetchLanguageRepos(selectedLanguage)
       .then((repos) => this.setState({
           repos,
           error: null,
@@ -129,7 +128,6 @@ export default class Login extends React.Component {
   updateLogin (dashboard) {
     this.setState({
       error: null,
-      repos: null,
       dashboard: true
     })
   }
@@ -138,7 +136,13 @@ export default class Login extends React.Component {
 
     if (dashboard === true) {
       return (
-        <Dashboard />
+        <React.Fragment>
+          <LanguagesNav
+            selected={selectedLanguage}
+            onUpdateLanguage={this.updateLanguage}
+          />
+          {repos && <Dashboard repos={repos} selectedLanguage={selectedLanguage} />}
+        </React.Fragment>
       )
     }
 

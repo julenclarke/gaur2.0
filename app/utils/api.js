@@ -1,4 +1,4 @@
-export function fetchPopularRepos () {
+export function fetchLanguageRepos () {
   const endpoint = 'app/languagesdata.json'
 
   return fetch(endpoint)
