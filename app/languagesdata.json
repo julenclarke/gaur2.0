@@ -15,7 +15,10 @@
         "surveys": "Inkestak",
         "titles": "Tituluak",
         "exams": "Azterketak",
-        "record": "Espedienteak"
+        "record": "Espedienteak",
+        "personalinfo": "Informazio Pertsonala",
+        "name": "Izena",
+        "email": "E-Posta"
       }
     },
     {
@@ -33,7 +36,10 @@
         "surveys": "Encuestas",
         "titles": "Títulos",
         "exams": "Exámenes",
-        "record": "Expedientes"
+        "record": "Expedientes",
+        "personalinfo": "Información Personal",
+        "name": "Nombre",
+        "email": "Email"
       }
 
     },
@@ -52,7 +58,10 @@
         "surveys": "Surveys",
         "titles": "Titles",
         "exams": "Exams",
-        "record": "Record"
+        "record": "Record",
+        "personalinfo": "Personal Info",
+        "name": "Name",
+        "email": "Email"
       }
     }
   ]

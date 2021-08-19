@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import Card from './Card'
 import Loading from './Loading'
 import { fetchLanguageRepos } from '../utils/api'
+import Profile from './Profile'
 
-function ReposGrid ({ repos, selected }) {
+function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
   var language = {}
   switch (selected) {
     case "EU":
@@ -24,10 +25,14 @@ function ReposGrid ({ repos, selected }) {
   return (
     <ul className='grid space-around'>
       <li key={language.studyplan}>
-        <Card
-          header={language.studyplan}
+        <button
+          onClick={() => {onUpdateProfile(`${profile}`)}}
         >
-        </Card>
+          <Card
+            header={language.studyplan}
+          >
+          </Card>
+        </button>
       </li>
       <li key={language.careers}>
         <Card
@@ -87,10 +92,13 @@ export default class Dashboard extends React.Component {
 
     this.state = {
       selectedLanguage: 'EU',
-      repos:null,
+      repos: null,
       error: null,
-      loading: true
+      loading: true,
+      profile: false
     }
+
+    this.updateProfile = this.updateProfile.bind(this)
   }
 
   componentDidMount () {
@@ -99,16 +107,33 @@ export default class Dashboard extends React.Component {
       selectedLanguage,
       repos,
       error: null,
-      loading: false
+      loading: false,
+      profile: false
+    })
+  }
+
+  updateProfile (profile) {
+    this.setState({
+      error: null,
+      profile: true
     })
   }
 
   render() {
     const { selectedLanguage, repos, error } = this.props
+    const { profile } = this.state
+
+    if (profile === true) {
+      return (
+        <React.Fragment>
+          {repos && <Profile repos={repos} selectedLanguage={selectedLanguage} />}
+        </React.Fragment>
+      )
+    }
 
     return (
       <React.Fragment>
-        {repos && <ReposGrid repos={repos} selected={selectedLanguage}/>}
+        {repos && <ReposGrid repos={repos} selected={selectedLanguage} profile={profile} onUpdateProfile={this.updateProfile} />}
       </React.Fragment>
     )
   }
