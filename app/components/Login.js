@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { languagedata } from './Languages'
 import languagesdata from '../languagesdata.json'
 import { fetchLanguageRepos } from '../utils/api'
 import Dashboard from './Dashboard'
