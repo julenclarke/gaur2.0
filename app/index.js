@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import Login from './components/Login'
-import Nav from './components/Nav'
+import Dashboard from './components/Dashboard'
+import {BrowserRouter as Router, Route } from 'react-router-dom'
 
 // Component is concerned about State, Lifecycle and UI
 // State
@@ -14,10 +15,11 @@ import Nav from './components/Nav'
 class App extends React.Component {
   render() {
     return (
-      <div className='container'>
-        <Nav />
-        <Login />
-      </div>
+      <Router>
+        <div className='container'>
+          <Route exact path='/' component={Login} />
+        </div>
+      </Router>
     )
   }
 }

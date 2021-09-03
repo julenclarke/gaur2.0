@@ -4,6 +4,7 @@ import Card from './Card'
 import Loading from './Loading'
 import { fetchLanguageRepos } from '../utils/api'
 import Profile from './Profile'
+import { Link } from 'react-router-dom'
 
 function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
   var language = {}
@@ -35,10 +36,12 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
         </button>
       </li>
       <li key={language.careers}>
-        <Card
-          header={language.careers}
-        >
-        </Card>
+        <Link to='/'>
+          <Card
+            header={language.careers}
+          >
+          </Card>
+        </Link>
       </li>
       <li key={language.census}>
         <Card

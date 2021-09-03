@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import languagesdata from '../languagesdata.json'
 import { fetchLanguageRepos } from '../utils/api'
 import Dashboard from './Dashboard'
+import Nav from './Nav'
+import {BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 function LanguagesNav ({ selected, onUpdateLanguage}) {
   const languages = ['EU', 'ES', 'EN']
@@ -71,12 +73,14 @@ function LoginForm ({ repos, selected, dashboard, onUpdateLogin }) {
         />
       </div>
       <div className='row player-inputs'>
-        <button
-          className='btn dark-btn'
-          type='submit'
+        <button className='btn dark-btn'
+          // to={{
+          //   pathname: '/dashboard',
+          //   // search: `?lang=${selected}`
+          // }}
           onClick={() => {onUpdateLogin(`${dashboard}`)}}
-        >
-          {language.login}
+          >
+            {language.login}
         </button>
       </div>
     </form>
@@ -133,17 +137,18 @@ export default class Login extends React.Component {
   render() {
     const { selectedLanguage, repos, error, dashboard } = this.state
 
-    if (dashboard === true) {
-      return (
-        <React.Fragment>
-          <LanguagesNav
-            selected={selectedLanguage}
-            onUpdateLanguage={this.updateLanguage}
-          />
-          {repos && <Dashboard repos={repos} selectedLanguage={selectedLanguage} />}
-        </React.Fragment>
-      )
-    }
+     if (dashboard === true) {
+       return (
+         <React.Fragment>
+          <Nav />
+           <LanguagesNav
+             selected={selectedLanguage}
+             onUpdateLanguage={this.updateLanguage}
+           />
+           {repos && <Dashboard repos={repos} selectedLanguage={selectedLanguage} />}
+         </React.Fragment>
+       )
+     }
 
     return (
       <React.Fragment>
@@ -156,6 +161,15 @@ export default class Login extends React.Component {
 
         {repos && <LoginForm repos={repos} selected={selectedLanguage} dashboard={dashboard} onUpdateLogin={this.updateLogin} />}
 
+        {/*<Route
+          path='/dashboard'
+          render={(props) => (
+            <Dashboard {...props}
+              repos={repos}
+              selected={selectedLanguage}
+            />
+          )}
+        />*/}
       </React.Fragment>
     )
   }

@@ -3,6 +3,14 @@ import PropTypes from 'prop-types'
 import Card from './Card'
 import Loading from './Loading'
 import { fetchLanguageRepos } from '../utils/api'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
+import Button from '@material-ui/core/Button'
+import { makeStyles } from '@material-ui/core/styles'
+import { deepOrange, deepPurple } from '@material-ui/core/colors'
 
 function ProfileList ({ repos, selected }) {
   var language = {}
@@ -26,20 +34,48 @@ function ProfileList ({ repos, selected }) {
       <Card
         header={language.personalinfo}
       >
-        <ul className='card-list'>
-          <li>
-            <b>{language.name}</b> Julen Clarke
-          </li>
-          <li>
-            <b>{language.username}</b> jclarke001
-          </li>
-          <li>
-            <b>{language.email}</b> jclarke001@ikasle.ehu.eus
-          </li>
-          <li>
-            <b>{language.password}</b> ··············
-          </li>
-        </ul>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <h3> {language.name} </h3>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <p> Julen Clarke </p>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <h3> {language.username} </h3>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <p> jclarke001 </p>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <h3> {language.email} </h3>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <p> jclarke001@ikasle.ehu.eus </p>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <h3> {language.password} </h3>
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <TextField
+                variant="outlined"
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+            >
+              password
+            </TextField>
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <button
+              className='btn dark-btn'>
+              Change Password
+            </button>
+          </Grid>
+        </Grid>
       </Card>
     </div>
   )
