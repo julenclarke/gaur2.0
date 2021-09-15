@@ -3,39 +3,39 @@ import PropTypes from 'prop-types'
 import languagesdata from '../languagesdata.json'
 import { fetchLanguageRepos } from '../utils/api'
 import Dashboard from './Dashboard'
-import Nav from './Nav'
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-function LanguagesNav ({ selected, onUpdateLanguage}) {
-  const languages = ['EU', 'ES', 'EN']
+// function LanguagesNav ({ selected, onUpdateLanguage}) {
+//   const languages = ['EU', 'ES', 'EN']
 
-  return (
-    <div >
-      <h1 className='center-text header-lg'>
-        GAUR 2.0
-      </h1>
-      <ul className='flex-center'>
-        {languages.map((language) => (
-          <li key={language}>
-            <button
-              className='btn-clear nav-link'
-              style={language === selected ? { color: 'rgb(187, 46, 31)' } : null }
-              onClick={() => onUpdateLanguage(language)}>
-              {language}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
+//   return (
+//     <div >
+//       <h1 className='center-text header-lg'>
+//         GAUR 2.0
+//       </h1>
+//       <ul className='flex-center'>
+//         {languages.map((language) => (
+//           <li key={language}>
+//             <button
+//               className='btn-clear nav-link'
+//               style={language === selected ? { color: 'rgb(187, 46, 31)' } : null }
+//               onClick={() => onUpdateLanguage(language)}>
+//               {language}
+//             </button>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   )
+// }
 
-LanguagesNav.propTypes = {
-  selected: PropTypes.string.isRequired,
-  onUpdateLanguage: PropTypes.func.isRequired
-}
+// LanguagesNav.propTypes = {
+//   selected: PropTypes.string.isRequired,
+//   onUpdateLanguage: PropTypes.func.isRequired
+// }
 
-function LoginForm ({ repos, selected, dashboard, onUpdateLogin }) {
+// function LoginForm ({ repos, selected, dashboard, onUpdateLogin }) {
+function LoginForm ({ repos, selected }) {
   var language = {}
   switch (selected) {
     case "EU":
@@ -53,7 +53,7 @@ function LoginForm ({ repos, selected, dashboard, onUpdateLogin }) {
   }
 
   return (
-    <form className='column player'>
+     <form className='column player'>
       <div className='row player-inputs'>
         <input
           type='text'
@@ -73,15 +73,18 @@ function LoginForm ({ repos, selected, dashboard, onUpdateLogin }) {
         />
       </div>
       <div className='row player-inputs'>
-        <button className='btn dark-btn'
-          // to={{
-          //   pathname: '/dashboard',
-          //   // search: `?lang=${selected}`
-          // }}
-          onClick={() => {onUpdateLogin(`${dashboard}`)}}
-          >
-            {language.login}
-        </button>
+        <Link
+          to={{
+            pathname: '/dashboard',
+            // search: `?lang=${selected}`
+          }}
+        >
+          <button className='btn dark-btn'
+            // onClick={() => {onUpdateLogin(`${dashboard}`)}}
+            >
+              {language.login}
+          </button>
+        </Link>
       </div>
     </form>
   )
@@ -99,77 +102,84 @@ export default class Login extends React.Component {
       selectedLanguage: 'EU',
       repos: null,
       error: null,
-      dashboard: false
+      // dashboard: false
     }
 
-    this.updateLanguage = this.updateLanguage.bind(this)
-    this.updateLogin = this.updateLogin.bind(this)
+  //   this.updateLanguage = this.updateLanguage.bind(this)
+  //   this.updateLogin = this.updateLogin.bind(this)
 
   }
-  componentDidMount () {
-    this.updateLanguage(this.state.selectedLanguage)
-  }
-  updateLanguage (selectedLanguage) {
-    this.setState({
-      selectedLanguage,
-      error: null
-    })
 
-    fetchLanguageRepos(selectedLanguage)
-      .then((repos) => this.setState({
-          repos,
-          error: null,
-      }))
-      .catch(() => {
-        console.warn('Error fetching repos: ', error)
+  // componentDidMount () {
+  //   this.updateLanguage(this.state.selectedLanguage)
+  // }
 
-        this.setState({
-          error: 'There was an error fetching the repositories.'
-        })
-      })
-  }
-  updateLogin (dashboard) {
-    this.setState({
-      error: null,
-      dashboard: true
-    })
-  }
+  // componentDidMount () {
+  //   var { repos, selectedLanguage } = this.props
+  //   console.log(this.props)
+  //   this.setState({
+  //     selectedLanguage,
+  //     repos
+  //   })
+  // }
+
+  // updateLanguage (selectedLanguage) {
+  //   this.setState({
+  //     selectedLanguage,
+  //     error: null
+  //   })
+
+  //   fetchLanguageRepos(selectedLanguage)
+  //     .then((repos) => this.setState({
+  //         repos,
+  //         error: null,
+  //     }))
+  //     .catch(() => {
+  //       console.warn('Error fetching repos: ', error)
+
+  //       this.setState({
+  //         error: 'There was an error fetching the repositories.'
+  //       })
+  //     })
+  // }
+
+  // updateLogin (dashboard) {
+  //   this.setState({
+  //     error: null,
+  //     dashboard: true
+  //   })
+  // }
+
   render() {
-    const { selectedLanguage, repos, error, dashboard } = this.state
+    // const { selectedLanguage, repos, error, dashboard } = this.state
+    const { selectedLanguage, repos, error } = this.props
 
-     if (dashboard === true) {
-       return (
-         <React.Fragment>
-          <Nav />
-           <LanguagesNav
-             selected={selectedLanguage}
-             onUpdateLanguage={this.updateLanguage}
-           />
-           {repos && <Dashboard repos={repos} selectedLanguage={selectedLanguage} />}
-         </React.Fragment>
-       )
-     }
+     // if (dashboard === true) {
+     //   return (
+     //     <React.Fragment>
+     //       <Nav />
+     //       <LanguagesNav
+     //         selected={selectedLanguage}
+     //         onUpdateLanguage={this.updateLanguage}
+     //       />
+     //       {repos && <Dashboard repos={repos} selectedLanguage={selectedLanguage} />}
+     //     </React.Fragment>
+     //   )
+     // }
 
     return (
       <React.Fragment>
-        <LanguagesNav
+        {/*<LanguagesNav
           selected={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
-        />
+        />*/}
 
         {error && <p>{error}</p>}
 
-        {repos && <LoginForm repos={repos} selected={selectedLanguage} dashboard={dashboard} onUpdateLogin={this.updateLogin} />}
+        {/*{repos && <LoginForm repos={repos} selected={selectedLanguage} dashboard={dashboard} onUpdateLogin={this.updateLogin} />}*/}
 
-        {/*<Route
-          path='/dashboard'
-          render={(props) => (
-            <Dashboard {...props}
-              repos={repos}
-              selected={selectedLanguage}
-            />
-          )}
-        />*/}
+        {repos && <LoginForm repos={repos} selected={selectedLanguage}/>}
+
       </React.Fragment>
     )
   }

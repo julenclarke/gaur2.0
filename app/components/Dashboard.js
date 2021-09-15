@@ -4,6 +4,7 @@ import Card from './Card'
 import Loading from './Loading'
 import { fetchLanguageRepos } from '../utils/api'
 import Profile from './Profile'
+import Nav from './Nav'
 import { Link } from 'react-router-dom'
 
 function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
@@ -26,14 +27,21 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
   return (
     <ul className='grid space-around'>
       <li key={language.studyplan}>
-        <button
-          onClick={() => {onUpdateProfile(`${profile}`)}}
+        <Link
+          to={{
+            pathname: '/profile',
+            // search: `?lang=${selected}`
+          }}
         >
+        {/*<button
+          onClick={() => {onUpdateProfile(`${profile}`)}}
+        >*/}
           <Card
             header={language.studyplan}
           >
           </Card>
-        </button>
+        {/*</button>*/}
+        </Link>
       </li>
       <li key={language.careers}>
         <Link to='/'>
@@ -98,45 +106,46 @@ export default class Dashboard extends React.Component {
       repos: null,
       error: null,
       loading: true,
-      profile: false
+      // profile: false
     }
 
-    this.updateProfile = this.updateProfile.bind(this)
+    // this.updateProfile = this.updateProfile.bind(this)
   }
 
-  componentDidMount () {
-    var { repos, selectedLanguage } = this.props
-    this.setState({
-      selectedLanguage,
-      repos,
-      error: null,
-      loading: false,
-      profile: false
-    })
-  }
+  // componentDidMount () {
+  //   var { repos, selectedLanguage } = this.props
+  //   this.setState({
+  //     selectedLanguage,
+  //     repos,
+  //     error: null,
+  //     loading: false,
+  //     profile: false
+  //   })
+  // }
 
-  updateProfile (profile) {
-    this.setState({
-      error: null,
-      profile: true
-    })
-  }
+  // updateProfile (profile) {
+  //   this.setState({
+  //     error: null,
+  //     profile: true
+  //   })
+  // }
 
   render() {
     const { selectedLanguage, repos, error } = this.props
-    const { profile } = this.state
+    // const { profile } = this.state
 
-    if (profile === true) {
-      return (
-        <React.Fragment>
-          {repos && <Profile repos={repos} selectedLanguage={selectedLanguage} />}
-        </React.Fragment>
-      )
-    }
+    // if (profile === true) {
+    //   return (
+    //     <React.Fragment>
+    //       {repos && <Profile repos={repos} selectedLanguage={selectedLanguage} />}
+    //     </React.Fragment>
+    //   )
+    // }
 
     return (
       <React.Fragment>
-        {repos && <ReposGrid repos={repos} selected={selectedLanguage} profile={profile} onUpdateProfile={this.updateProfile} />}
+        <Nav/>
+        {repos && <ReposGrid repos={repos} selected={selectedLanguage} />}
       </React.Fragment>
     )
   }
