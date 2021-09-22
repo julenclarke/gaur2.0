@@ -30,14 +30,14 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
         <Link
           to={{
             pathname: '/profile',
-            // search: `?lang=${selected}`
+            search: `?lang=${selected}`
           }}
         >
         {/*<button
           onClick={() => {onUpdateProfile(`${profile}`)}}
         >*/}
           <Card
-            header={language.studyplan}
+            header={language.personalinfo}
           >
           </Card>
         {/*</button>*/}
