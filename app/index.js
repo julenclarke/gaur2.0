@@ -96,32 +96,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-// const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-//   ({ theme, open }) => ({
-//     '& .MuiDrawer-paper': {
-//       position: 'relative',
-//       whiteSpace: 'nowrap',
-//       width: drawerWidth,
-//       transition: theme.transitions.create('width', {
-//         easing: theme.transitions.easing.sharp,
-//         duration: theme.transitions.duration.enteringScreen,
-//       }),
-//       boxSizing: 'border-box',
-//       ...(!open && {
-//         overflowX: 'hidden',
-//         transition: theme.transitions.create('width', {
-//           easing: theme.transitions.easing.sharp,
-//           duration: theme.transitions.duration.leavingScreen,
-//         }),
-//         width: theme.spacing(7),
-//         [theme.breakpoints.up('sm')]: {
-//           width: theme.spacing(9),
-//         },
-//       }),
-//     },
-//   }),
-// );
-
 const mdTheme = createTheme({
   palette: {
     primary: {
@@ -139,70 +113,70 @@ const mdTheme = createTheme({
   },
 });
 
-// function LanguagesNav ({ selected, onUpdateLanguage}) {
-//   const languages = ['EU', 'ES', 'EN']
-
-//   return (
-//     <ThemeProvider theme={mdTheme}>
-//       <Box sx={{ display: 'flex' }}>
-//         <CssBaseline />
-//         <AppBar position="static">
-//           <Toolbar>
-//             <Typography
-//               component="h1"
-//               variant="h6"
-//               color="inherit"
-//               noWrap
-//               sx={{ flexGrow: 1 }}
-//             >
-//               <Link
-//                 to={{
-//                   pathname: '/',
-//                   search: `?lang=${selected}`
-//                 }}
-//                 style={{
-//                   color: 'rgb(255, 255, 255)',
-//                   textDecoration: 'none',
-//                 }}
-//               >
-//                 <strong>GAUR 2.0</strong>
-//               </Link>
-//             </Typography>
-//             <ul className='flex-center'>
-//               {languages.map((language) => (
-//                 <Link key={language}
-//                   to={{
-//                     search: `?lang=${language}`
-//                   }}
-//                   style={{
-//                     color: 'rgb(255, 255, 255)',
-//                     textDecoration: 'none'
-//                   }}
-//                 >
-//                   <li key={language}>
-//                     <button
-//                       className='btn-clear nav-link'
-//                       style={language === selected ? { color: 'rgb(0, 128, 0)' } : null }
-//                       onClick={() => onUpdateLanguage(language)}>
-//                       {language}
-//                     </button>
-//                   </li>
-//                 </Link>
-//               ))}
-//             </ul>
-//           </Toolbar>
-//         </AppBar>
-//       </Box>
-//     </ThemeProvider>
-//   );
-// }
-
-// LanguagesNav.propTypes = {
-//   selected: PropTypes.string.isRequired,
-//   onUpdateLanguage: PropTypes.func.isRequired
-// }
-
 function LanguagesNav ({ selected, onUpdateLanguage}) {
+  const languages = ['EU', 'ES', 'EN']
+
+  return (
+    <ThemeProvider theme={mdTheme}>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar position="static">
+          <Toolbar>
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              <Link
+                to={{
+                  pathname: '/',
+                  search: `?lang=${selected}`
+                }}
+                style={{
+                  color: 'rgb(255, 255, 255)',
+                  textDecoration: 'none',
+                }}
+              >
+                <strong>GAUR 2.0</strong>
+              </Link>
+            </Typography>
+            <ul className='flex-center'>
+              {languages.map((language) => (
+                <Link key={language}
+                  to={{
+                    search: `?lang=${language}`
+                  }}
+                  style={{
+                    color: 'rgb(255, 255, 255)',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <li key={language}>
+                    <button
+                      className='btn-clear nav-link'
+                      style={language === selected ? { color: 'rgb(0, 128, 0)' } : null }
+                      onClick={() => onUpdateLanguage(language)}>
+                      {language}
+                    </button>
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </ThemeProvider>
+  );
+}
+
+LanguagesNav.propTypes = {
+  selected: PropTypes.string.isRequired,
+  onUpdateLanguage: PropTypes.func.isRequired
+}
+
+function LanguagesNavLogged ({ selected, onUpdateLanguage}) {
   const languages = ['EU', 'ES', 'EN']
 
   const theme = useTheme();
@@ -324,10 +298,10 @@ function LanguagesNav ({ selected, onUpdateLanguage}) {
   );
 }
 
-// LanguagesNavLogged.propTypes = {
-//   selected: PropTypes.string.isRequired,
-//   onUpdateLanguage: PropTypes.func.isRequired
-// }
+LanguagesNavLogged.propTypes = {
+  selected: PropTypes.string.isRequired,
+  onUpdateLanguage: PropTypes.func.isRequired
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -341,6 +315,7 @@ class App extends React.Component {
     }
 
     this.updateLanguage = this.updateLanguage.bind(this)
+    this.logIn = this.logIn.bind(this)
   }
 
   componentDidMount () {
@@ -378,53 +353,53 @@ class App extends React.Component {
   render() {
     const { selectedLanguage, repos, error, loggedin } = this.state
 
-    // if (loggedin === false) {
-      // return (
-      //   <Router>
-      //     <div className='container'>
-      //       <LanguagesNav
-      //         selected={selectedLanguage}
-      //         onUpdateLanguage={this.updateLanguage}
-      //       />
-      //       <Route
-      //         exact path='/'
-      //         render={(props) => (
-      //           <Login
-      //             repos={repos}
-      //             selectedLanguage={selectedLanguage}
-      //             loggedin={this.handler}
-      //           />
-      //         )}
-      //       />
-      //       <Route
-      //         path='/dashboard'
-      //         render={(props) => (
-      //           <Dashboard
-      //             repos={repos}
-      //             selectedLanguage={selectedLanguage}
-      //           />
-      //         )}
-      //       />
-      //       <Route
-      //         path='/profile'
-      //         render={(props) => (
-      //           <Profile
-      //             repos={repos}
-      //             selectedLanguage={selectedLanguage}
-      //           />
-      //         )}
-      //       />
-      //       <Route path='/newdashboard'>
-      //           <DrawerPage />
-      //       </Route>
-      //     </div>
-      //   </Router>
-      // )
-    // } else {
+    if (loggedin === false) {
       return (
         <Router>
           <div className='container'>
             <LanguagesNav
+              selected={selectedLanguage}
+              onUpdateLanguage={this.updateLanguage}
+            />
+            <Route
+              exact path='/'
+              render={(props) => (
+                <Login
+                  repos={repos}
+                  selectedLanguage={selectedLanguage}
+                  logIn={this.logIn}
+                />
+              )}
+            />
+            <Route
+              path='/dashboard'
+              render={(props) => (
+                <Dashboard
+                  repos={repos}
+                  selectedLanguage={selectedLanguage}
+                />
+              )}
+            />
+            <Route
+              path='/profile'
+              render={(props) => (
+                <Profile
+                  repos={repos}
+                  selectedLanguage={selectedLanguage}
+                />
+              )}
+            />
+            <Route path='/newdashboard'>
+                <DrawerPage />
+            </Route>
+          </div>
+        </Router>
+      )
+    } else {
+      return (
+        <Router>
+          <div className='container'>
+            <LanguagesNavLogged
               selected={selectedLanguage}
               onUpdateLanguage={this.updateLanguage}
             />
@@ -465,7 +440,7 @@ class App extends React.Component {
           </div>
         </Router>
       )
-    // }
+    }
   }
 }
 

@@ -13,7 +13,7 @@ import Nav from './Nav'
 import { makeStyles } from '@material-ui/core/styles'
 import { deepOrange, deepPurple } from '@material-ui/core/colors'
 
-function ProfileList ({ repos, selected }) {
+function ProfileList ({ repos, selected, onHandlePassChanged }) {
   var language = {}
   switch (selected) {
     case "EU":
@@ -62,19 +62,75 @@ function ProfileList ({ repos, selected }) {
                 variant="outlined"
                 fullWidth
                 name="password"
-                label="Password"
+                label={language.password}
                 type="password"
                 id="password"
                 autoComplete="current-password"
             >
-              password
             </TextField>
           </Grid>
           <Grid item xs={6} sm={3}>
             <button
-              className='btn dark-btn'>
-              Change Password
+              className='btn dark-btn'
+              type='submit'
+              onClick={() => {onHandlePassChanged()}}
+            >
+              {language.changepass}
             </button>
+          </Grid>
+        </Grid>
+      </Card>
+    </div>
+  )
+}
+
+function ProfileListPassChanged ({ repos, selected }) {
+  var language = {}
+  switch (selected) {
+    case "EU":
+      selected = "EU";
+      language  = repos[0].terms;
+      break;
+    case "ES":
+      selected = "ES";
+      language = repos[1].terms;
+      break;
+    case "EN":
+      selected = "EN";
+      language = repos[2].terms;
+      break;
+  }
+
+  return (
+    <div className='grid space-around container-sm'>
+      <Card
+        header={language.personalinfo}
+      >
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <h3> {language.name} </h3>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <p> Julen Clarke </p>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <h3> {language.username} </h3>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <p> jclarke001 </p>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <h3> {language.email} </h3>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <p> jclarke001@ikasle.ehu.eus </p>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <h3> {language.password} </h3>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          {/*Add more styling.*/}
+            <p> {language.passchangesuccess} </p>
           </Grid>
         </Grid>
       </Card>
@@ -90,28 +146,39 @@ export default class Profile extends React.Component {
       selectedLanguage: 'EU',
       repos: null,
       error: null,
-      loading: true
+      loading: true,
+      passchanged: false
     }
+
+    this.handlePassChanged = this.handlePassChanged.bind(this)
   }
 
-  // componentDidMount () {
-  //   var { repos, selectedLanguage } = this.props
-  //   this.setState({
-  //     selectedLanguage,
-  //     repos,
-  //     error: null,
-  //     loading: false
-  //   })
-  // }
+  handlePassChanged () {
+    this.setState({
+      passchanged: true
+    })
+  }
 
   render() {
     const { selectedLanguage, repos, error } = this.props
+
+    const { passchanged } = this.state
+
+    if (passchanged === true) {
+      return (
+      <React.Fragment>
+          <br />
+          <br />
+          {repos && <ProfileListPassChanged repos={repos} selected={selectedLanguage} />}
+      </React.Fragment>
+      )
+    }
 
     return (
       <React.Fragment>
           <br />
           <br />
-          {repos && <ProfileList repos={repos} selected={selectedLanguage}/>}
+          {repos && <ProfileList repos={repos} selected={selectedLanguage} onHandlePassChanged={this.handlePassChanged} />}
       </React.Fragment>
     )
   }

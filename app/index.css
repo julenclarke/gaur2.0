@@ -28,7 +28,7 @@ p {
 
 .flex-center {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 
@@ -156,7 +156,6 @@ p {
   display: flex;
   flex-direction: row-reverse;
   padding-left: 20px;
-  float: right;
 }
 
 .player {

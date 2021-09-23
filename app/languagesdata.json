@@ -20,7 +20,9 @@
         "record": "Espedienteak",
         "personalinfo": "Informazio Pertsonala",
         "name": "Izena",
-        "email": "E-Posta"
+        "email": "E-Posta",
+        "changepass": "Pasahitza aldatu",
+        "passchangesuccess": "Pasahitza ondo aldatu da. 🔒"
       }
     },
     {
@@ -43,7 +45,9 @@
         "record": "Expedientes",
         "personalinfo": "Información Personal",
         "name": "Nombre",
-        "email": "Email"
+        "email": "Email",
+        "changepass": "Cambiar contraseña",
+        "passchangesuccess": "La contraseña ha sido cambiada. 🔒"
       }
 
     },
@@ -67,7 +71,9 @@
         "record": "Record",
         "personalinfo": "Personal Info",
         "name": "Name",
-        "email": "Email"
+        "email": "Email",
+        "changepass": "Change password",
+        "passchangesuccess": "Password was successfully changed. 🔒"
       }
     }
   ]

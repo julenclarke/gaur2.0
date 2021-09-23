@@ -36,7 +36,7 @@ const theme = createTheme({
   },
 });
 
-function LoginForm ({ repos, selected }) {
+function LoginForm ({ repos, selected, onLogIn }) {
   const languages = ['EU', 'ES', 'EN']
 
   var language = {}
@@ -87,41 +87,6 @@ function LoginForm ({ repos, selected }) {
               src="https://loginsso.ehu.es/login/images/logo_UPV_peq.png"
             />
             <br/>
-{/*            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-
-              <LockOutlinedIcon />
-            </Avatar>*/}
-{/*            <Typography component="h1" variant="h5">
-              GAUR 2.0
-            </Typography>*/}
-            {/*<div >
-              <Link
-                to={{
-                  pathname: '/',
-                  search: `?lang=${selected}`
-                }}
-              >
-              </Link>
-              <ul className='flex-center'>
-                {languages.map((language) => (
-                  <Link key={language}
-                    to={{
-                      search: `?lang=${language}`
-                    }}
-                  >
-                    <li key={language}>
-                      <button
-                        className='btn-clear nav-link'
-                        style={language === selected ? { color: 'rgb(187, 46, 31)' } : null }
-                        onClick={() => onUpdateLanguage(language)}>
-                        {language}
-                      </button>
-                    </li>
-                  </Link>
-                ))}
-              </ul>
-            </div>*/}
-            {/*<LanguagesNav selectedLanguage={selected} />*/}
             <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
@@ -158,7 +123,7 @@ function LoginForm ({ repos, selected }) {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
-                  // onClick={() => {this.props.logIn}}
+                  onClick={() => {onLogIn()}}
                 >
                   {language.login}
                 </Button>
@@ -195,10 +160,11 @@ export default class Login extends React.Component {
     this.state = {
       selectedLanguage: 'EU',
       repos: null,
-      error: null,
+      error: null
     }
 
     this.updateLanguage = this.updateLanguage.bind(this)
+    this.logIn = this.logIn.bind(this)
   }
 
   componentDidMount () {
@@ -228,20 +194,19 @@ export default class Login extends React.Component {
 
   }
 
+  logIn() {
+    this.props.logIn();
+  }
+
   render() {
-    const { selectedLanguage, repos, error, loggedin } = this.props
+    const { selectedLanguage, repos, error, logIn } = this.props
 
     return (
       <React.Fragment>
 
-{/*        <LanguagesNav
-          selected={selectedLanguage}
-          onUpdateLanguage={this.updateLanguage}
-        />*/}
-
         {error && <p>{error}</p>}
 
-        {repos && <LoginForm repos={repos} selected={selectedLanguage}/>}
+        {repos && <LoginForm repos={repos} selected={selectedLanguage} onLogIn={this.logIn}/>}
 
       </React.Fragment>
     )
