@@ -109,7 +109,8 @@ export default class Profile extends React.Component {
 
     return (
       <React.Fragment>
-          <Nav/>
+          <br />
+          <br />
           {repos && <ProfileList repos={repos} selected={selectedLanguage}/>}
       </React.Fragment>
     )

@@ -19,48 +19,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-// function LanguagesNav ({ selected, onUpdateLanguage}) {
-//   const languages = ['EU', 'ES', 'EN']
-
-//   return (
-//     <div >
-//       <Link
-//         to={{
-//           pathname: '/',
-//           search: `?lang=${selected}`
-//         }}
-//       >
-//         <h1 className='center-text header-lg'>
-//           GAUR 2.0
-//         </h1>
-//       </Link>
-//       <ul className='flex-center'>
-//         {languages.map((language) => (
-//           <Link key={language}
-//             to={{
-//               search: `?lang=${language}`
-//             }}
-//           >
-//             <li key={language}>
-//               <button
-//                 className='btn-clear nav-link'
-//                 style={language === selected ? { color: 'rgb(187, 46, 31)' } : null }
-//                 onClick={() => onUpdateLanguage(language)}>
-//                 {language}
-//               </button>
-//             </li>
-//           </Link>
-//         ))}
-//       </ul>
-//     </div>
-//   )
-// }
-
-// LanguagesNav.propTypes = {
-//   selected: PropTypes.string.isRequired,
-//   onUpdateLanguage: PropTypes.func.isRequired
-// }
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -200,6 +158,7 @@ function LoginForm ({ repos, selected }) {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
+                  // onClick={() => {this.props.logIn}}
                 >
                   {language.login}
                 </Button>
@@ -270,7 +229,7 @@ export default class Login extends React.Component {
   }
 
   render() {
-    const { selectedLanguage, repos, error } = this.props
+    const { selectedLanguage, repos, error, loggedin } = this.props
 
     return (
       <React.Fragment>
