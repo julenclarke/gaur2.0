@@ -60,7 +60,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                     // 16:9
                     maxHeight: 150,
                   }}
-                  image="https://source.unsplash.com/random"
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashprofile.png"
                   alt="random"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
@@ -84,7 +84,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                   // 16:9
                   maxHeight: 150,
                 }}
-                image="https://source.unsplash.com/random"
+                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashrecord.png"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
