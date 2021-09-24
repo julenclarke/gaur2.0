@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import Login from './components/Login'
 import Nav from './components/Nav'
-import SignInSide from './components/SignInSide'
-import NewDashboard from './components/NewDashboard'
-import Album from './components/Album'
 import Dashboard from './components/Dashboard'
 import Profile from './components/Profile'
 import DrawerPage from './components/DrawerPage'
@@ -38,7 +35,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
 import Drawer from '@mui/material/Drawer';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import Record from './components/Record'
 
 // Component is concerned about State, Lifecycle and UI
 // State
@@ -177,6 +177,58 @@ LanguagesNav.propTypes = {
 }
 
 function LanguagesNavLogged ({ selected, onUpdateLanguage}) {
+  var language = {}
+  switch (selected) {
+    case "EU":
+      selected = "EU";
+      language  = {
+        "dashboard": "Kontrol-panela",
+        "studyplan": "Ikasketa-planak",
+        "careers": "Lan Mundura Trantsizioa bekak",
+        "census": "Errolda",
+        "sms": "SMS Zerbitzua",
+        "tuitions": "Matrikulak",
+        "surveys": "Inkestak",
+        "titles": "Tituluak",
+        "exams": "Azterketak",
+        "record": "Espedienteak",
+        "personalinfo": "Informazio Pertsonala",
+      };
+      break;
+    case "ES":
+      selected = "ES";
+      language = {
+        "dashboard": "Panel de control",
+        "studyplan": "Plan de estudios",
+        "careers": "Becas a",
+        "census": "Censo",
+        "sms": "Servicio SMS",
+        "tuitions": "Matrículas",
+        "surveys": "Encuestas",
+        "titles": "Títulos",
+        "exams": "Exámenes",
+        "record": "Expedientes",
+        "personalinfo": "Información Personal"
+      };
+      break;
+    case "EN":
+      selected = "EN";
+      language = {
+        "dashboard": "Dashboard",
+        "studyplan": "Study plan",
+        "careers": "Careers",
+        "census": "Census",
+        "sms": "SMS Service",
+        "tuitions": "Tuitions",
+        "surveys": "Surveys",
+        "titles": "Titles",
+        "exams": "Exams",
+        "record": "Record",
+        "personalinfo": "Personal Info"
+      };
+      break;
+  }
+
   const languages = ['EU', 'ES', 'EN']
 
   const theme = useTheme();
@@ -272,14 +324,40 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage}) {
           </DrawerHeader>
           <Divider />
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
+            <Link
+                to={{
+                  pathname: '/',
+                  search: `?lang=${selected}`
+                }}
+                style={{
+                  color: 'rgba(0, 0, 0, 0.87)',
+                  textDecoration: 'none'
+                }}
+              >
+              <ListItem button key={language.dashboard}>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <HomeIcon />
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={language.dashboard} />
               </ListItem>
-            ))}
+            </Link>
+            <Link
+              to={{
+                pathname: '/profile',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+            >
+              <ListItem button key={language.personalinfo}>
+                <ListItemIcon>
+                  <PermIdentityIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.personalinfo} />
+              </ListItem>
+            </Link>
           </List>
           <Divider />
           <List>
@@ -371,7 +449,7 @@ class App extends React.Component {
                 />
               )}
             />
-            <Route
+{/*            <Route
               path='/dashboard'
               render={(props) => (
                 <Dashboard
@@ -388,10 +466,16 @@ class App extends React.Component {
                   selectedLanguage={selectedLanguage}
                 />
               )}
+            />*/}
+            <Route
+              path='/record'
+              render={(props) => (
+                <Record
+                  repos={repos}
+                  selectedLanguage={selectedLanguage}
+                />
+              )}
             />
-            <Route path='/newdashboard'>
-                <DrawerPage />
-            </Route>
           </div>
         </Router>
       )
@@ -405,13 +489,22 @@ class App extends React.Component {
             />
             <Main open={open}>
               <DrawerHeader />
-              <Route
+{/*              <Route
                 exact path='/'
                 render={(props) => (
                   <Login
                     repos={repos}
                     selectedLanguage={selectedLanguage}
                     loggedin={this.handler}
+                  />
+                )}
+              />*/}
+              <Route
+                exact path='/'
+                render={(props) => (
+                  <Dashboard
+                    repos={repos}
+                    selectedLanguage={selectedLanguage}
                   />
                 )}
               />
@@ -433,9 +526,6 @@ class App extends React.Component {
                   />
                 )}
               />
-              <Route path='/newdashboard'>
-                  <DrawerPage />
-              </Route>
             </Main>
           </div>
         </Router>

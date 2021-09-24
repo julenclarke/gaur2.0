@@ -49,6 +49,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                 pathname: '/profile',
                 search: `?lang=${selected}`
               }}
+              style={{ textDecoration: 'none' }}
             >
               <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
@@ -72,6 +73,29 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                 </CardContent>
               </Card>
             </Link>
+          </Grid>
+          <Grid item key={language.record} xs={12} sm={6} md={4}>
+            <Card
+              sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            >
+              <CardMedia
+                component="img"
+                sx={{
+                  // 16:9
+                  maxHeight: 150,
+                }}
+                image="https://source.unsplash.com/random"
+                alt="random"
+              />
+              <CardContent sx={{ flexGrow: 1 }}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {language.record}
+                </Typography>
+                <Typography>
+                  {language.record}
+                </Typography>
+              </CardContent>
+            </Card>
           </Grid>
           <Grid item key={language.careers} xs={12} sm={6} md={4}>
             <Card
@@ -234,29 +258,6 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item key={language.record} xs={12} sm={6} md={4}>
-            <Card
-              sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-            >
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  maxHeight: 150,
-                }}
-                image="https://source.unsplash.com/random"
-                alt="random"
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {language.record}
-                </Typography>
-                <Typography>
-                  {language.record}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
         </Grid>
       </Container>
     </ThemeProvider>
@@ -270,8 +271,7 @@ export default class Dashboard extends React.Component {
     this.state = {
       selectedLanguage: 'EU',
       repos: null,
-      error: null,
-      loading: true
+      error: null
     }
 
   }

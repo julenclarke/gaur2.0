@@ -132,7 +132,7 @@ function LoginForm ({ repos, selected, onLogIn }) {
                 <Grid item xs>
                   <Link
                     to={{
-                      pathname: '/newdashboard',
+                      pathname: '/record',
                       search: `?lang=${selected}`
                     }} variant="body2">
                     {language.forgot}

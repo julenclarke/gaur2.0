@@ -146,7 +146,6 @@ export default class Profile extends React.Component {
       selectedLanguage: 'EU',
       repos: null,
       error: null,
-      loading: true,
       passchanged: false
     }
 
