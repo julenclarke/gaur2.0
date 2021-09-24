@@ -28,25 +28,6 @@ import TableRow from '@mui/material/TableRow';
 import Title from './Title';
 import {useState,useEffect} from 'react'
 
-function createData(id, subject, year, group, type, credits, grade, qualificationdate, call) {
-  return { id, subject, year, group, type, credits, grade, qualificationdate, call };
-}
-
-  const rows = [
-    createData(
-      0,
-      '26020 - Datu-baseak',
-      '2014/15',
-      '61',
-      'Nahitaezkoa',
-      '6.0',
-      'Bikain',
-      '10.00',
-      '2015/06/09',
-      '1',
-    ),
-  ];
-
 function preventDefault(event) {
   event.preventDefault();
 }
@@ -91,7 +72,6 @@ function RecordContent({ repos, selected }) {
             overflow: 'auto',
           }}
         >
-          <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               {/* Recent Orders */}
@@ -99,38 +79,254 @@ function RecordContent({ repos, selected }) {
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   {/*It shows the content*/}
                   <Title>{language.record}</Title>
+                  <h4>1. {language.courseyear}</h4>
                   <Table size="small">
                     <TableHead>
                         <TableRow>
-                          {/*It won't show the content*/}
                           <TableCell>{language.subject}</TableCell>
                           <TableCell>{language.year}</TableCell>
                           <TableCell>{language.group}</TableCell>
                           <TableCell>{language.type}</TableCell>
                           <TableCell>{language.credits}</TableCell>
+                          <TableCell>{language.qualification}</TableCell>
                           <TableCell>{language.grade}</TableCell>
                           <TableCell>{language.qualificationdate}</TableCell>
                           <TableCell>{language.call}</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                      {rows.map((row) => (
-                        <TableRow key={row.id}>
-                          <TableCell>{row.subject}</TableCell>
-                          <TableCell>{row.year}</TableCell>
-                          <TableCell>{row.group}</TableCell>
-                          <TableCell>{row.type}</TableCell>
-                          <TableCell>{row.credits}</TableCell>
-                          <TableCell>{row.grade}</TableCell>
-                          <TableCell>{row.qualificationdate}</TableCell>
-                          <TableCell>{row.call}</TableCell>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
                         </TableRow>
-                      ))}
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
                     </TableBody>
                   </Table>
-{/*                  <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-                    See more orders
-                  </Link>*/}
+                  <h4>2. {language.courseyear}</h4>
+                  <Table size="small">
+                    <TableHead>
+                        <TableRow>
+                          <TableCell>{language.subject}</TableCell>
+                          <TableCell>{language.year}</TableCell>
+                          <TableCell>{language.group}</TableCell>
+                          <TableCell>{language.type}</TableCell>
+                          <TableCell>{language.credits}</TableCell>
+                          <TableCell>{language.qualification}</TableCell>
+                          <TableCell>{language.grade}</TableCell>
+                          <TableCell>{language.qualificationdate}</TableCell>
+                          <TableCell>{language.call}</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                    </TableBody>
+                  </Table>
+                  <h4>3. {language.courseyear}</h4>
+                  <Table size="small">
+                    <TableHead>
+                        <TableRow>
+                          <TableCell>{language.subject}</TableCell>
+                          <TableCell>{language.year}</TableCell>
+                          <TableCell>{language.group}</TableCell>
+                          <TableCell>{language.type}</TableCell>
+                          <TableCell>{language.credits}</TableCell>
+                          <TableCell>{language.qualification}</TableCell>
+                          <TableCell>{language.grade}</TableCell>
+                          <TableCell>{language.qualificationdate}</TableCell>
+                          <TableCell>{language.call}</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                    </TableBody>
+                  </Table>
+                  <h4>4. {language.courseyear}</h4>
+                  <Table size="small">
+                    <TableHead>
+                        <TableRow>
+                          <TableCell>{language.subject}</TableCell>
+                          <TableCell>{language.year}</TableCell>
+                          <TableCell>{language.group}</TableCell>
+                          <TableCell>{language.type}</TableCell>
+                          <TableCell>{language.credits}</TableCell>
+                          <TableCell>{language.qualification}</TableCell>
+                          <TableCell>{language.grade}</TableCell>
+                          <TableCell>{language.qualificationdate}</TableCell>
+                          <TableCell>{language.call}</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>2014/15</TableCell>
+                          <TableCell>61</TableCell>
+                          <TableCell>{language.mandatory}</TableCell>
+                          <TableCell>6.0</TableCell>
+                          <TableCell>{language.excellent}</TableCell>
+                          <TableCell>10.00</TableCell>
+                          <TableCell>2015/06/09 </TableCell>
+                          <TableCell>1</TableCell>
+                        </TableRow>
+                    </TableBody>
+                  </Table>
                 </Paper>
               </Grid>
             </Grid>

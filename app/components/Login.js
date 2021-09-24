@@ -114,7 +114,7 @@ function LoginForm ({ repos, selected, onLogIn }) {
               />
               <Link
                 to={{
-                  pathname: '/dashboard',
+                  pathname: '/',
                   search: `?lang=${selected}`
                 }}
               >

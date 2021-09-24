@@ -39,6 +39,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import Drawer from '@mui/material/Drawer';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import Record from './components/Record'
+import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
+import LanguageIcon from '@mui/icons-material/Language';
+import DomainIcon from '@mui/icons-material/Domain';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 // Component is concerned about State, Lifecycle and UI
 // State
@@ -176,7 +180,7 @@ LanguagesNav.propTypes = {
   onUpdateLanguage: PropTypes.func.isRequired
 }
 
-function LanguagesNavLogged ({ selected, onUpdateLanguage}) {
+function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
   var language = {}
   switch (selected) {
     case "EU":
@@ -191,8 +195,10 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage}) {
         "surveys": "Inkestak",
         "titles": "Tituluak",
         "exams": "Azterketak",
-        "record": "Espedienteak",
+        "record": "Espedientea",
         "personalinfo": "Informazio Pertsonala",
+        "logout": "Saioa Itxi",
+        "faculty": "Informatika Fakultatea"
       };
       break;
     case "ES":
@@ -207,8 +213,10 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage}) {
         "surveys": "Encuestas",
         "titles": "Títulos",
         "exams": "Exámenes",
-        "record": "Expedientes",
-        "personalinfo": "Información Personal"
+        "record": "Expediente",
+        "personalinfo": "Información Personal",
+        "logout": "Cerrar Sesión",
+        "faculty": "Facultad de Informática"
       };
       break;
     case "EN":
@@ -223,8 +231,10 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage}) {
         "surveys": "Surveys",
         "titles": "Titles",
         "exams": "Exams",
-        "record": "Record",
-        "personalinfo": "Personal Info"
+        "record": "Student Record",
+        "personalinfo": "Personal Info",
+        "logout": "Log Out",
+        "faculty": "IT Faculty"
       };
       break;
   }
@@ -358,17 +368,61 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage}) {
                 <ListItemText primary={language.personalinfo} />
               </ListItem>
             </Link>
+            <Link
+              to={{
+                pathname: '/record',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+            >
+              <ListItem button key={language.record}>
+                <ListItemIcon>
+                  <FormatAlignJustifyIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.record} />
+              </ListItem>
+            </Link>
           </List>
           <Divider />
           <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
+            <a href="https://www.ehu.eus/en/en-home" target="_blank">
+              <ListItem button key="ehu.eus">
+                  <ListItemIcon>
+                    <LanguageIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="ehu.eus" />
+                </ListItem>
+            </a>
+            <a href="https://www.ehu.eus/en/web/informatika-fakultatea" target="_blank">
+              <ListItem button key="ehu.eus/if">
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <DomainIcon />
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={language.faculty} />
               </ListItem>
-            ))}
+            </a>
+            <Divider />
+            <Link
+              to={{
+                pathname: '/',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+              onClick={() => onLogOut()}
+            >
+              <ListItem button key={language.logout}>
+                <ListItemIcon>
+                  <LogoutIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.logout} />
+              </ListItem>
+            </Link>
           </List>
         </Drawer>
       </Box>
@@ -394,6 +448,7 @@ class App extends React.Component {
 
     this.updateLanguage = this.updateLanguage.bind(this)
     this.logIn = this.logIn.bind(this)
+    this.logOut = this.logOut.bind(this)
   }
 
   componentDidMount () {
@@ -428,6 +483,12 @@ class App extends React.Component {
     })
   }
 
+  logOut() {
+    this.setState({
+      loggedin: false
+    })
+  }
+
   render() {
     const { selectedLanguage, repos, error, loggedin } = this.state
 
@@ -440,7 +501,7 @@ class App extends React.Component {
               onUpdateLanguage={this.updateLanguage}
             />
             <Route
-              exact path='/'
+              path='/'
               render={(props) => (
                 <Login
                   repos={repos}
@@ -449,26 +510,8 @@ class App extends React.Component {
                 />
               )}
             />
-{/*            <Route
-              path='/dashboard'
-              render={(props) => (
-                <Dashboard
-                  repos={repos}
-                  selectedLanguage={selectedLanguage}
-                />
-              )}
-            />
             <Route
-              path='/profile'
-              render={(props) => (
-                <Profile
-                  repos={repos}
-                  selectedLanguage={selectedLanguage}
-                />
-              )}
-            />*/}
-            <Route
-              path='/record'
+              exact path='/record'
               render={(props) => (
                 <Record
                   repos={repos}
@@ -486,19 +529,10 @@ class App extends React.Component {
             <LanguagesNavLogged
               selected={selectedLanguage}
               onUpdateLanguage={this.updateLanguage}
+              onLogOut={this.logOut}
             />
             <Main open={open}>
               <DrawerHeader />
-{/*              <Route
-                exact path='/'
-                render={(props) => (
-                  <Login
-                    repos={repos}
-                    selectedLanguage={selectedLanguage}
-                    loggedin={this.handler}
-                  />
-                )}
-              />*/}
               <Route
                 exact path='/'
                 render={(props) => (
@@ -508,7 +542,7 @@ class App extends React.Component {
                   />
                 )}
               />
-              <Route
+{/*              <Route
                 path='/dashboard'
                 render={(props) => (
                   <Dashboard
@@ -516,11 +550,20 @@ class App extends React.Component {
                     selectedLanguage={selectedLanguage}
                   />
                 )}
-              />
+              />*/}
               <Route
                 path='/profile'
                 render={(props) => (
                   <Profile
+                    repos={repos}
+                    selectedLanguage={selectedLanguage}
+                  />
+                )}
+              />
+              <Route
+                path='/record'
+                render={(props) => (
+                  <Record
                     repos={repos}
                     selectedLanguage={selectedLanguage}
                   />
