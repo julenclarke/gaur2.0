@@ -127,10 +127,6 @@ function LanguagesNav ({ selected, onUpdateLanguage}) {
         <AppBar position="static">
           <Toolbar>
             <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
               sx={{ flexGrow: 1 }}
             >
               <Link
@@ -143,7 +139,11 @@ function LanguagesNav ({ selected, onUpdateLanguage}) {
                   textDecoration: 'none',
                 }}
               >
-                <strong>GAUR 2.0</strong>
+                <img
+                  className="logo"
+                  src="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/logogaur20.png"
+                  height="40"
+                />
               </Link>
             </Typography>
             <ul className='flex-center'>
@@ -270,10 +270,6 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
               <MenuIcon />
             </IconButton>
             <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
               sx={{ flexGrow: 1 }}
             >
               <Link
@@ -286,7 +282,11 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
                   textDecoration: 'none',
                 }}
               >
-                <strong>GAUR 2.0</strong>
+                <img
+                  className="logo"
+                  src="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/logogaur20.png"
+                  height="40"
+                />
               </Link>
             </Typography>
             <ul className='flex-center'>
@@ -511,7 +511,7 @@ class App extends React.Component {
               )}
             />
             <Route
-              exact path='/record'
+              path='/record'
               render={(props) => (
                 <Record
                   repos={repos}

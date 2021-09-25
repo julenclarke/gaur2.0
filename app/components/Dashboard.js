@@ -75,27 +75,35 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
             </Link>
           </Grid>
           <Grid item key={language.record} xs={12} sm={6} md={4}>
-            <Card
-              sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            <Link
+              to={{
+                pathname: '/record',
+                search: `?lang=${selected}`
+              }}
+              style={{ textDecoration: 'none' }}
             >
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  maxHeight: 150,
-                }}
-                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashrecord.png"
-                alt="random"
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {language.record}
-                </Typography>
-                <Typography>
-                  {language.record}
-                </Typography>
-              </CardContent>
-            </Card>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    // 16:9
+                    maxHeight: 150,
+                  }}
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashrecord.png"
+                  alt="random"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {language.record}
+                  </Typography>
+                  <Typography>
+                    {language.record}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           </Grid>
           <Grid item key={language.careers} xs={12} sm={6} md={4}>
             <Card

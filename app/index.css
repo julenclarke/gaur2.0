@@ -27,7 +27,11 @@ h4 {
 
 a {
   color: rgba(0, 0, 0, 0.87);
-  text-decoration: none
+  text-decoration: none;
+}
+
+.logo {
+  margin-top: 4px;
 }
 
 /*.container {
@@ -114,7 +118,7 @@ a {
 }
 
 .bg-light {
-  background: rgba(0, 0, 0, 0.08);
+  background: rgb(0, 0, 0, 0.08);
   border-radius: 3px;
 }
 
