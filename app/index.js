@@ -160,7 +160,7 @@ function LanguagesNav ({ selected, onUpdateLanguage}) {
                   <li key={language}>
                     <button
                       className='btn-clear nav-link'
-                      style={language === selected ? { color: 'rgb(0, 128, 0)' } : null }
+                      style={language === selected ? { color: 'rgb(142, 235, 142)' } : null }
                       onClick={() => onUpdateLanguage(language)}>
                       {language}
                     </button>
@@ -303,7 +303,7 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
                   <li key={language}>
                     <button
                       className='btn-clear nav-link'
-                      style={language === selected ? { color: 'rgb(0, 128, 0)' } : null }
+                      style={language === selected ? { color: 'rgb(142, 235, 142)' } : null }
                       onClick={() => onUpdateLanguage(language)}>
                       {language}
                     </button>
