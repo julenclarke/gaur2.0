@@ -5,7 +5,6 @@ import Login from './components/Login'
 import Nav from './components/Nav'
 import Dashboard from './components/Dashboard'
 import Profile from './components/Profile'
-import DrawerPage from './components/DrawerPage'
 import PropTypes from 'prop-types'
 import languagesdata from './languagesdata.json'
 import { fetchLanguageRepos } from './utils/api'
@@ -26,10 +25,6 @@ import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
-import { mainListItems, secondaryListItems } from './components/listItems'
-import Chart from './components/Chart'
-import Deposits from './components/Deposits'
-import Orders from './components/Orders'
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';

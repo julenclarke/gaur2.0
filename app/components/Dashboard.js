@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Loading from './Loading'
 import { fetchLanguageRepos } from '../utils/api'
 import Profile from './Profile'
 import Nav from './Nav'
@@ -115,7 +114,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                   // 16:9
                   maxHeight: 150,
                 }}
-                image="https://source.unsplash.com/random"
+                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
@@ -138,7 +137,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                   // 16:9
                   maxHeight: 150,
                 }}
-                image="https://source.unsplash.com/random"
+                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
@@ -161,7 +160,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                   // 16:9
                   maxHeight: 150,
                 }}
-                image="https://source.unsplash.com/random"
+                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
@@ -184,7 +183,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                   // 16:9
                   maxHeight: 150,
                 }}
-                image="https://source.unsplash.com/random"
+                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
@@ -207,7 +206,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                   // 16:9
                   maxHeight: 150,
                 }}
-                image="https://source.unsplash.com/random"
+                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
@@ -230,7 +229,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                   // 16:9
                   maxHeight: 150,
                 }}
-                image="https://source.unsplash.com/random"
+                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
@@ -253,7 +252,7 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
                   // 16:9
                   maxHeight: 150,
                 }}
-                image="https://source.unsplash.com/random"
+                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
