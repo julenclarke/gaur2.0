@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import Login from './components/Login'
-import Nav from './components/Nav'
+import ProfileButton from './components/ProfileButton'
 import Dashboard from './components/Dashboard'
 import Profile from './components/Profile'
 import PropTypes from 'prop-types'
@@ -38,6 +38,11 @@ import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 import LanguageIcon from '@mui/icons-material/Language';
 import DomainIcon from '@mui/icons-material/Domain';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Tooltip from '@mui/material/Tooltip';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Avatar from '@mui/material/Avatar';
+import Logout from '@mui/icons-material/Logout';
 
 // Component is concerned about State, Lifecycle and UI
 // State
@@ -112,7 +117,7 @@ const mdTheme = createTheme({
   },
 });
 
-function LanguagesNav ({ selected, onUpdateLanguage}) {
+function Nav ({ selected, onUpdateLanguage}) {
   const languages = ['EU', 'ES', 'EN']
 
   return (
@@ -170,12 +175,12 @@ function LanguagesNav ({ selected, onUpdateLanguage}) {
   );
 }
 
-LanguagesNav.propTypes = {
+Nav.propTypes = {
   selected: PropTypes.string.isRequired,
   onUpdateLanguage: PropTypes.func.isRequired
 }
 
-function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
+function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
   var language = {}
   switch (selected) {
     case "EU":
@@ -247,6 +252,15 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
     setOpen(false);
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const opened = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
@@ -306,7 +320,71 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
                 </Link>
               ))}
             </ul>
-            <Nav />
+            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+              {/*Tooltip shows info when hovering*/}
+              <Tooltip title="Account settings">
+                <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
+                  {/*<Avatar sx={{ width: 32, height: 32 }}>M</Avatar>*/}
+                  <ProfileButton />
+                </IconButton>
+              </Tooltip>
+            </Box>
+            <Menu
+              anchorEl={anchorEl}
+              open={opened}
+              onClose={handleClose}
+              onClick={handleClose}
+              PaperProps={{
+                elevation: 0,
+                sx: {
+                  overflow: 'visible',
+                  filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                  mt: 1.5,
+                  '& .MuiAvatar-root': {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                  },
+                  '&:before': {
+                    content: '""',
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    right: 14,
+                    width: 10,
+                    height: 10,
+                    bgcolor: 'background.paper',
+                    transform: 'translateY(-50%) rotate(45deg)',
+                    zIndex: 0,
+                  },
+                },
+              }}
+              transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+              anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+            >
+              <Link
+                to={{
+                  pathname: '/profile',
+                  search: `?lang=${selected}`
+                }}
+                style={{
+                  color: 'rgba(0, 0, 0, 0.87)',
+                  textDecoration: 'none'
+                }}
+              >
+                <MenuItem>
+                  <Avatar /> {language.personalinfo}
+                </MenuItem>
+              </Link>
+              <Divider />
+              <MenuItem onClick={() => onLogOut()} >
+                <ListItemIcon >
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Logout
+              </MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -380,6 +458,108 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
                 <ListItemText primary={language.record} />
               </ListItem>
             </Link>
+            <Link
+              to={{
+                pathname: '/record',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+            >
+              <ListItem button key={language.careers}>
+                <ListItemIcon>
+                  <FormatAlignJustifyIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.careers} />
+              </ListItem>
+            </Link>
+            <Link
+              to={{
+                pathname: '/record',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+            >
+              <ListItem button key={language.census}>
+                <ListItemIcon>
+                  <FormatAlignJustifyIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.census} />
+              </ListItem>
+            </Link>
+            <Link
+              to={{
+                pathname: '/record',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+            >
+              <ListItem button key={language.sms}>
+                <ListItemIcon>
+                  <FormatAlignJustifyIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.sms} />
+              </ListItem>
+            </Link>
+            <Link
+              to={{
+                pathname: '/record',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+            >
+              <ListItem button key={language.tuitions}>
+                <ListItemIcon>
+                  <FormatAlignJustifyIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.tuitions} />
+              </ListItem>
+            </Link>
+            <Link
+              to={{
+                pathname: '/record',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+            >
+              <ListItem button key={language.titles}>
+                <ListItemIcon>
+                  <FormatAlignJustifyIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.titles} />
+              </ListItem>
+            </Link>
+            <Link
+              to={{
+                pathname: '/record',
+                search: `?lang=${selected}`
+              }}
+              style={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                textDecoration: 'none'
+              }}
+            >
+              <ListItem button key={language.exams}>
+                <ListItemIcon>
+                  <FormatAlignJustifyIcon />
+                </ListItemIcon>
+                <ListItemText primary={language.exams} />
+              </ListItem>
+            </Link>
           </List>
           <Divider />
           <List>
@@ -425,7 +605,7 @@ function LanguagesNavLogged ({ selected, onUpdateLanguage, onLogOut }) {
   );
 }
 
-LanguagesNavLogged.propTypes = {
+NavLogged.propTypes = {
   selected: PropTypes.string.isRequired,
   onUpdateLanguage: PropTypes.func.isRequired
 }
@@ -491,7 +671,7 @@ class App extends React.Component {
       return (
         <Router>
           <div className='container'>
-            <LanguagesNav
+            <Nav
               selected={selectedLanguage}
               onUpdateLanguage={this.updateLanguage}
             />
@@ -521,7 +701,7 @@ class App extends React.Component {
       return (
         <Router>
           <div className='container'>
-            <LanguagesNavLogged
+            <NavLogged
               selected={selectedLanguage}
               onUpdateLanguage={this.updateLanguage}
               onLogOut={this.logOut}
@@ -537,15 +717,6 @@ class App extends React.Component {
                   />
                 )}
               />
-{/*              <Route
-                path='/dashboard'
-                render={(props) => (
-                  <Dashboard
-                    repos={repos}
-                    selectedLanguage={selectedLanguage}
-                  />
-                )}
-              />*/}
               <Route
                 path='/profile'
                 render={(props) => (

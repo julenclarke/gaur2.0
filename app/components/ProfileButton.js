@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Nav () {
+export default function ProfileButton () {
   const classes = useStyles()
 
   return (

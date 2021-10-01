@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { fetchLanguageRepos } from '../utils/api'
 import Profile from './Profile'
-import Nav from './Nav'
 import { Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
