@@ -5,6 +5,8 @@ import Login from './components/Login'
 import ProfileButton from './components/ProfileButton'
 import Dashboard from './components/Dashboard'
 import Profile from './components/Profile'
+import Record from './components/Record'
+import ForgotPass from './components/ForgotPass'
 import PropTypes from 'prop-types'
 import languagesdata from './languagesdata.json'
 import { fetchLanguageRepos } from './utils/api'
@@ -33,7 +35,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import HomeIcon from '@mui/icons-material/Home';
 import Drawer from '@mui/material/Drawer';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import Record from './components/Record'
 import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 import LanguageIcon from '@mui/icons-material/Language';
 import DomainIcon from '@mui/icons-material/Domain';
@@ -676,7 +677,7 @@ class App extends React.Component {
               onUpdateLanguage={this.updateLanguage}
             />
             <Route
-              path='/'
+              exact path='/'
               render={(props) => (
                 <Login
                   repos={repos}
@@ -686,9 +687,9 @@ class App extends React.Component {
               )}
             />
             <Route
-              path='/record'
+              path='/forgotpass'
               render={(props) => (
-                <Record
+                <ForgotPass
                   repos={repos}
                   selectedLanguage={selectedLanguage}
                 />

@@ -37,7 +37,10 @@
         "call": "Deialdia",
         "databases": "26020 - Datu-baseak",
         "mandatory": "Nahitaezkoa",
-        "excellent": "Bikain"
+        "excellent": "Bikain",
+        "resetpass": "Pasahitza berrezarri",
+        "recoverypass": "Pasahitza berrezartzeko emaila ondo bidali da. 💌",
+        "backtologin": "Hasierako orrira bueltatu"
       }
     },
     {
@@ -77,7 +80,10 @@
         "call": "Convocatoria",
         "databases": "26020 - Bases de datos",
         "mandatory": "Obligatoria",
-        "excellent": "Excelente"
+        "excellent": "Excelente",
+        "resetpass": "Restablecer contraseña",
+        "recoverypass": "El email para restablecer la contraseña se ha enviado correctamente. 💌",
+        "backtologin": "Volver a la página de inicio"
       }
     },
     {
@@ -88,7 +94,7 @@
         "welcome": "Log into GAUR 2.0",
         "login": "Log in",
         "remember": "Remember me",
-        "forgot": "Did you forget your password?",
+        "forgot": "Forgot password?",
         "dashboard": "Dashboard",
         "studyplan": "Study plan",
         "careers": "Careers",
@@ -117,7 +123,10 @@
         "call": "Call",
         "databases": "26020 - Databases",
         "mandatory": "Mandatory",
-        "excellent": "Excellent"
+        "excellent": "Excellent",
+        "resetpass": "Reset password",
+        "recoverypass": "The email to reset the password has been sent correctly. 💌",
+        "backtologin": "Go back to login page"
       }
     }
   ]
