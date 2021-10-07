@@ -55,7 +55,6 @@ function ResetForm({ repos, selected, onHandleResetPass }) {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           sx={{
             my: 8,
@@ -122,7 +121,6 @@ function ResetFormEmailSent({ repos, selected }) {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           sx={{
             my: 8,

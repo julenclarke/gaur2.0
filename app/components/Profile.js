@@ -10,6 +10,26 @@ import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import { deepOrange, deepPurple } from '@material-ui/core/colors'
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#333333',
+      main: '#000',
+      dark: '#000',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#000',
+      main: '#000',
+      dark: '#000',
+      contrastText: '#fff',
+    },
+  },
+});
 
 function ProfileList ({ repos, selected, onHandlePassChanged }) {
   var language = {}
@@ -29,56 +49,62 @@ function ProfileList ({ repos, selected, onHandlePassChanged }) {
   }
 
   return (
-    <div className='grid space-around container-sm'>
-      <Card
-        header={language.personalinfo}
-      >
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <h3> {language.name} </h3>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <p> Julen Clarke </p>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <h3> {language.username} </h3>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <p> jclarke001 </p>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <h3> {language.email} </h3>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <p> jclarke001@ikasle.ehu.eus </p>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <h3> {language.password} </h3>
-          </Grid>
-          <Grid item xs={6} sm={3}>
-            <TextField
-                variant="outlined"
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+          <Typography component="h1" variant="h4" align="center">
+            {language.personalinfo}
+          </Typography>
+          <br />
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <h3> {language.name} </h3>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <p> Julen Clarke </p>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <h3> {language.username} </h3>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <p> jclarke001 </p>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <h3> {language.email} </h3>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <p> jclarke001@ikasle.ehu.eus </p>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <h3> {language.password} </h3>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <TextField
+                  variant="outlined"
+                  fullWidth
+                  name="password"
+                  label={language.password}
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+              >
+              </TextField>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <button
+                type="submit"
                 fullWidth
-                name="password"
-                label={language.password}
-                type="password"
-                id="password"
-                autoComplete="current-password"
-            >
-            </TextField>
+                variant="contained"
+                className="pbtn dark-btn"
+                onClick={() => {onHandlePassChanged()}}
+              >
+                {language.changepass}
+              </button>
+            </Grid>
           </Grid>
-          <Grid item xs={6} sm={3}>
-            <button
-              className='btn dark-btn'
-              type='submit'
-              onClick={() => {onHandlePassChanged()}}
-            >
-              {language.changepass}
-            </button>
-          </Grid>
-        </Grid>
-      </Card>
-    </div>
+        </Paper>
+      </Container>
+    </ThemeProvider>
   )
 }
 
@@ -100,39 +126,43 @@ function ProfileListPassChanged ({ repos, selected }) {
   }
 
   return (
-    <div className='grid space-around container-sm'>
-      <Card
-        header={language.personalinfo}
-      >
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <h3> {language.name} </h3>
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+          <Typography component="h1" variant="h4" align="center">
+            {language.personalinfo}
+          </Typography>
+          <br />
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <h3> {language.name} </h3>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <p> Julen Clarke </p>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <h3> {language.username} </h3>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <p> jclarke001 </p>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <h3> {language.email} </h3>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <p> jclarke001@ikasle.ehu.eus </p>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <h3> {language.password} </h3>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+            {/*Add more styling.*/}
+              <p> {language.passchangesuccess} </p>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <p> Julen Clarke </p>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <h3> {language.username} </h3>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <p> jclarke001 </p>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <h3> {language.email} </h3>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <p> jclarke001@ikasle.ehu.eus </p>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <h3> {language.password} </h3>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-          {/*Add more styling.*/}
-            <p> {language.passchangesuccess} </p>
-          </Grid>
-        </Grid>
-      </Card>
-    </div>
+        </Paper>
+      </Container>
+    </ThemeProvider>
   )
 }
 

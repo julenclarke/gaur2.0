@@ -17,7 +17,7 @@ li {
 }
 
 p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 h4 {
@@ -216,6 +216,15 @@ a {
   cursor: pointer;
   text-decoration: none;
   max-width: 200px;
+}
+
+.pbtn {
+  padding: 10px;
+  margin:  2.5px;
+  text-decoration: uppercase;
+  border-radius: 3px;
+  border: none;
+  display: flex;
 }
 
 .dark-btn {
