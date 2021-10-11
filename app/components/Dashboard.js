@@ -19,7 +19,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme();
 
-function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
+function ReposGrid ({ repos, selected }) {
   var language = {}
   switch (selected) {
     case "EU":
@@ -104,27 +104,35 @@ function ReposGrid ({ repos, selected, profile, onUpdateProfile }) {
             </Link>
           </Grid>
           <Grid item key={language.careers} xs={12} sm={6} md={4}>
-            <Card
-              sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            <Link
+              to={{
+                pathname: '/careers',
+                search: `?lang=${selected}`
+              }}
+              style={{ textDecoration: 'none' }}
             >
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  maxHeight: 150,
-                }}
-                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
-                alt="random"
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {language.careers}
-                </Typography>
-                <Typography>
-                  {language.careers}
-                </Typography>
-              </CardContent>
-            </Card>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    // 16:9
+                    maxHeight: 150,
+                  }}
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
+                  alt="random"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {language.careers}
+                  </Typography>
+                  <Typography>
+                    {language.careers}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           </Grid>
           <Grid item key={language.census} xs={12} sm={6} md={4}>
             <Card

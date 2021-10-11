@@ -22,6 +22,7 @@
         "personalinfo": "Informazio Pertsonala",
         "logout": "Saioa Itxi",
         "name": "Izena",
+        "surname": "Abizena",
         "email": "E-Posta",
         "changepass": "Pasahitza aldatu",
         "passchangesuccess": "Pasahitza ondo aldatu da. 🔒",
@@ -40,7 +41,9 @@
         "excellent": "Bikain",
         "resetpass": "Pasahitza berrezarri",
         "recoverypass": "Pasahitza berrezartzeko emaila ondo bidali da. 💌",
-        "backtologin": "Hasierako orrira bueltatu"
+        "backtologin": "Hasierako orrira bueltatu",
+        "idtype": "Agiri mota",
+        "idnumber": "NA Zenbakia"
       }
     },
     {
@@ -65,6 +68,7 @@
         "personalinfo": "Información Personal",
         "logout": "Cerrar Sesión",
         "name": "Nombre",
+        "surname": "Apellido",
         "email": "Email",
         "changepass": "Cambiar contraseña",
         "passchangesuccess": "La contraseña ha sido cambiada. 🔒",
@@ -83,7 +87,9 @@
         "excellent": "Excelente",
         "resetpass": "Restablecer contraseña",
         "recoverypass": "El email para restablecer la contraseña se ha enviado correctamente. 💌",
-        "backtologin": "Volver a la página de inicio"
+        "backtologin": "Volver a la página de inicio",
+        "idtype": "Tipo Documento",
+        "idnumber": "Número Documento"
       }
     },
     {
@@ -108,6 +114,7 @@
         "personalinfo": "Personal Info",
         "logout": "Log Out",
         "name": "Name",
+        "surname": "Surname",
         "email": "Email",
         "changepass": "Change password",
         "passchangesuccess": "Password was successfully changed. 🔒",
@@ -126,7 +133,9 @@
         "excellent": "Excellent",
         "resetpass": "Reset password",
         "recoverypass": "The email to reset the password has been sent correctly. 💌",
-        "backtologin": "Go back to login page"
+        "backtologin": "Go back to login page",
+        "idtype": "ID Type",
+        "idnumber": "ID Number"
       }
     }
   ]
