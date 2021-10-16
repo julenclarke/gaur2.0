@@ -182,7 +182,7 @@ function ReposGrid ({ repos, selected }) {
                     // 16:9
                     maxHeight: 150,
                   }}
-                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashsms.png"
                   alt="random"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
@@ -197,27 +197,35 @@ function ReposGrid ({ repos, selected }) {
             </Link>
           </Grid>
           <Grid item key={language.tuitions} xs={12} sm={6} md={4}>
-            <Card
-              sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            <Link
+              to={{
+                pathname: '/tuitions',
+                search: `?lang=${selected}`
+              }}
+              style={{ textDecoration: 'none' }}
             >
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  maxHeight: 150,
-                }}
-                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
-                alt="random"
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {language.tuitions}
-                </Typography>
-                <Typography>
-                  {language.tuitions}
-                </Typography>
-              </CardContent>
-            </Card>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    // 16:9
+                    maxHeight: 150,
+                  }}
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashtuition.png"
+                  alt="random"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {language.tuitions}
+                  </Typography>
+                  <Typography>
+                    {language.tuitionsdescription}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           </Grid>
           <Grid item key={language.surveys} xs={12} sm={6} md={4}>
             <Card

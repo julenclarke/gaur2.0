@@ -68,7 +68,20 @@
         "confirmationmessage": "Zure eskaera zuzen prozesatu da.",
         "confirmationdescription": "E-Posta bidez bidali da zure eskaeraren konfirmazioa. Erantzun bat jasoko duzu aste gutxi barru.",
         "phonenumber": "Mugikor zenbakia",
-        "enable": "Aktibatu"
+        "enable": "Aktibatu",
+        "tuitions": "Matrikulak",
+        "tuitionsdescription": "Matrikulak kontsultatu.",
+        "tuition": "Matrikula",
+        "tuitionyear": "Matrikula-urtea",
+        "faculty": "Ikastegia",
+        "itfaculty": "226 - Informatika Fakultatea",
+        "degree": "Titulazioa",
+        "informaticsengineering": "GINFOR20 - Informatikaren Ingeniaritzako Gradua",
+        "status": "Egoera",
+        "opened": "Irekia",
+        "whenopened": "Noiz irekia",
+        "lasttuition": "Azken matrikularen data",
+        "print": "Inprimatu"
       }
     },
     {
@@ -139,7 +152,20 @@
         "confirmationmessage": "Tu solicitud ha sido procesada.",
         "confirmationdescription": "Hemos enviado la confirmación de tu solicitud por correo electrónico. Recibirás una respuesta en unas semanas.",
         "phonenumber": "Número de móvil",
-        "enable": "Activar"
+        "enable": "Activar",
+        "tuitions": "Matrículas",
+        "tuitionsdescription": "Consulta tus matrículas.",
+        "tuition": "Matrícula",
+        "tuitionyear": "Año de matrícula",
+        "faculty": "Facultad",
+        "itfaculty": "226 - Facultad de Informática",
+        "degree": "Titulación",
+        "informaticsengineering": "GINFOR20 - Grado en Ingeniería Informática",
+        "status": "Estado",
+        "opened": "Abierto",
+        "whenopened": "Fecha de apertura",
+        "lasttuition": "Fecha de última matrícula",
+        "print": "Imprimir"
       }
     },
     {
@@ -210,7 +236,20 @@
         "confirmationmessage": "Your application has been processed.",
         "confirmationdescription": "We have emailed your application confirmation. You will receive an answer in a few weeks time.",
         "phonenumber": "Phone number",
-        "enable": "Enable"
+        "enable": "Enable",
+        "tuitions": "Tuitions",
+        "tuitionsdescription": "Consult your tuitions.",
+        "tuition": "Tuition",
+        "tuitionyear": "Tuition year",
+        "faculty": "Faculty",
+        "itfaculty": "226 - IT Faculty",
+        "degree": "Degree",
+        "informaticsengineering": "GINFOR20 - Informatics Engineering Degree",
+        "status": "Status",
+        "opened": "Opened",
+        "whenopened": "Opened",
+        "lasttuition": "Last tuition date",
+        "print": "Print"
       }
     }
   ]
