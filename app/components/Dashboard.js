@@ -166,27 +166,35 @@ function ReposGrid ({ repos, selected }) {
             </Link>
           </Grid>
           <Grid item key={language.sms} xs={12} sm={6} md={4}>
-            <Card
-              sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            <Link
+              to={{
+                pathname: '/sms',
+                search: `?lang=${selected}`
+              }}
+              style={{ textDecoration: 'none' }}
             >
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  maxHeight: 150,
-                }}
-                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
-                alt="random"
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {language.sms}
-                </Typography>
-                <Typography>
-                  {language.sms}
-                </Typography>
-              </CardContent>
-            </Card>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    // 16:9
+                    maxHeight: 150,
+                  }}
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
+                  alt="random"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {language.sms}
+                  </Typography>
+                  <Typography>
+                    {language.smsdescription}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           </Grid>
           <Grid item key={language.tuitions} xs={12} sm={6} md={4}>
             <Card

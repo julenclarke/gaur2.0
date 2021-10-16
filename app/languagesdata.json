@@ -3,6 +3,10 @@
     {
       "language": "EU",
       "terms": {
+        "communicationlanguage": "Komunikazio-hizkuntza",
+        "basque": "Euskara",
+        "spanish": "Gaztelera",
+        "english": "Ingelesa",
         "username": "Erabiltzailea",
         "password": "Pasahitza",
         "welcome": "Sartu GAUR 2.0ra",
@@ -17,6 +21,9 @@
         "censusdescription": "Hemen zein erroldatan zauden ikusi dezakezu.",
         "censusmessage": "Zure datuak ez dira ez da errolda batean aurkitu.",
         "sms": "SMS Zerbitzua",
+        "smsdescription": "SMS Zerbitzua aktibatu dezakezu hemen.",
+        "smsconfirmation": "SMS Zerbitzua aktibatu da.",
+        "smsconfirmationdescription": "Konfirmazio SMS bat bidali da zure mugikorrera.",
         "tuitions": "Matrikulak",
         "surveys": "Inkestak",
         "titles": "Tituluak",
@@ -59,12 +66,18 @@
         "review": "Laburpena",
         "confirmation": "Konfirmazioa",
         "confirmationmessage": "Zure eskaera zuzen prozesatu da.",
-        "confirmationdescription": "E-Posta bidez bidali da zure eskaeraren konfirmazioa. Erantzun bat jasoko duzu aste gutxi barru."
+        "confirmationdescription": "E-Posta bidez bidali da zure eskaeraren konfirmazioa. Erantzun bat jasoko duzu aste gutxi barru.",
+        "phonenumber": "Mugikor zenbakia",
+        "enable": "Aktibatu"
       }
     },
     {
       "language": "ES",
       "terms": {
+        "communicationlanguage": "Idioma de comunicación",
+        "basque": "Euskera",
+        "spanish": "Castellano",
+        "english": "Inglés",
         "username": "Usuario",
         "password": "Contraseña",
         "welcome": "Entra a GAUR 2.0",
@@ -79,6 +92,9 @@
         "censusdescription": "Aquí encontrarás en qué censo estás registrado.",
         "censusmessage": "Tus datos no se han encontrado en ningún censo.",
         "sms": "Servicio SMS",
+        "smsdescription": "Aquí puedes activar el servicio SMS.",
+        "smsconfirmation": "El servicio SMS se ha activado.",
+        "smsconfirmationdescription": "Se ha enviado un SMS de confirmación a tu móvil.",
         "tuitions": "Matrículas",
         "surveys": "Encuestas",
         "titles": "Títulos",
@@ -121,12 +137,18 @@
         "review": "Resumen",
         "confirmation": "Confirmación",
         "confirmationmessage": "Tu solicitud ha sido procesada.",
-        "confirmationdescription": "Hemos enviado la confirmación de tu solicitud por correo electrónico. Recibirás una respuesta en unas semanas."
+        "confirmationdescription": "Hemos enviado la confirmación de tu solicitud por correo electrónico. Recibirás una respuesta en unas semanas.",
+        "phonenumber": "Número de móvil",
+        "enable": "Activar"
       }
     },
     {
       "language": "EN",
       "terms": {
+        "communicationlanguage": "Communication language",
+        "basque": "Basque",
+        "spanish": "Spanish",
+        "english": "English",
         "password": "Password",
         "username": "Username",
         "welcome": "Log into GAUR 2.0",
@@ -141,6 +163,9 @@
         "censusdescription": "Here you will find in which census you are registered.",
         "censusmessage": "Your data has not been found in any census.",
         "sms": "SMS Service",
+        "smsdescription": "Here you can enable the SMS Service.",
+        "smsconfirmation": "The SMS Service has been enabled.",
+        "smsconfirmationdescription": "A confirmation SMS has been sent to your phone.",
         "tuitions": "Tuitions",
         "surveys": "Surveys",
         "titles": "Titles",
@@ -183,7 +208,9 @@
         "review": "Review",
         "confirmation": "Confirmation",
         "confirmationmessage": "Your application has been processed.",
-        "confirmationdescription": "We have emailed your application confirmation. You will receive an answer in a few weeks time."
+        "confirmationdescription": "We have emailed your application confirmation. You will receive an answer in a few weeks time.",
+        "phonenumber": "Phone number",
+        "enable": "Enable"
       }
     }
   ]
