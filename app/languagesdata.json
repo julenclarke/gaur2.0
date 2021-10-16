@@ -43,7 +43,18 @@
         "recoverypass": "Pasahitza berrezartzeko emaila ondo bidali da. 💌",
         "backtologin": "Hasierako orrira bueltatu",
         "idtype": "Agiri mota",
-        "idnumber": "NA Zenbakia"
+        "idnumber": "NA Zenbakia",
+        "dateofbirth": "Jaiotze data",
+        "birthday": "1993/10/06",
+        "address": "Helbidea",
+        "sameperson": "Kontuaren titularra eta beka eskatzailea pertsona berdina izan behar dute.",
+        "next": "Hurrengoa",
+        "back": "Atzera",
+        "accountnumber": "Kontu zenbakia",
+        "review": "Laburpena",
+        "confirmation": "Konfirmazioa",
+        "confirmationmessage": "Zure eskaera zuzen prozesatu da.",
+        "confirmationdescription": "E-Posta bidez bidali da zure eskaeraren konfirmazioa. Erantzun bat jasoko duzu aste gutxi barru."
       }
     },
     {
@@ -89,7 +100,18 @@
         "recoverypass": "El email para restablecer la contraseña se ha enviado correctamente. 💌",
         "backtologin": "Volver a la página de inicio",
         "idtype": "Tipo Documento",
-        "idnumber": "Número Documento"
+        "idnumber": "Número DI",
+        "dateofbirth": "Fecha de nacimiento",
+        "birthday": "06/10/1993",
+        "address": "Dirección",
+        "sameperson": "El titular de la cuenta y el solicitante de la beca tienen que ser la misma persona.",
+        "next": "Siguiente",
+        "back": "Atrás",
+        "accountnumber": "Número de cuenta",
+        "review": "Resumen",
+        "confirmation": "Confirmación",
+        "confirmationmessage": "Tu solicitud ha sido procesada.",
+        "confirmationdescription": "Hemos enviado la confirmación de tu solicitud por correo electrónico. Recibirás una respuesta en unas semanas."
       }
     },
     {
@@ -133,9 +155,20 @@
         "excellent": "Excellent",
         "resetpass": "Reset password",
         "recoverypass": "The email to reset the password has been sent correctly. 💌",
-        "backtologin": "Go back to login page",
+        "backtologin": "Go back to home page",
         "idtype": "ID Type",
-        "idnumber": "ID Number"
+        "idnumber": "ID Number",
+        "dateofbirth": "Date of birth",
+        "birthday": "06/10/1993",
+        "address": "Address",
+        "sameperson": "The account owner and the scholarship applicant must be the same person.",
+        "next": "Next",
+        "back": "Back",
+        "accountnumber": "Account number",
+        "review": "Review",
+        "confirmation": "Confirmation",
+        "confirmationmessage": "Your application has been processed.",
+        "confirmationdescription": "We have emailed your application confirmation. You will receive an answer in a few weeks time."
       }
     }
   ]
