@@ -8,6 +8,7 @@ import Profile from './components/Profile'
 import Record from './components/Record'
 import ForgotPass from './components/ForgotPass'
 import Careers from './components/Careers'
+import Census from './components/Census'
 import PropTypes from 'prop-types'
 import languagesdata from './languagesdata.json'
 import { fetchLanguageRepos } from './utils/api'
@@ -741,6 +742,15 @@ class App extends React.Component {
                 path='/careers'
                 render={(props) => (
                   <Careers
+                    repos={repos}
+                    selectedLanguage={selectedLanguage}
+                  />
+                )}
+              />
+              <Route
+                path='/census'
+                render={(props) => (
+                  <Census
                     repos={repos}
                     selectedLanguage={selectedLanguage}
                   />

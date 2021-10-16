@@ -66,7 +66,7 @@ function ReposGrid ({ repos, selected }) {
                     {language.personalinfo}
                   </Typography>
                   <Typography>
-                    {language.personalinfo}
+                    {language.personalinfodescription}
                   </Typography>
                 </CardContent>
               </Card>
@@ -97,7 +97,7 @@ function ReposGrid ({ repos, selected }) {
                     {language.record}
                   </Typography>
                   <Typography>
-                    {language.record}
+                    {language.recorddescription}
                   </Typography>
                 </CardContent>
               </Card>
@@ -120,7 +120,7 @@ function ReposGrid ({ repos, selected }) {
                     // 16:9
                     maxHeight: 150,
                   }}
-                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashcareers.png"
                   alt="random"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
@@ -128,34 +128,42 @@ function ReposGrid ({ repos, selected }) {
                     {language.careers}
                   </Typography>
                   <Typography>
-                    {language.careers}
+                    {language.careersdescription}
                   </Typography>
                 </CardContent>
               </Card>
             </Link>
           </Grid>
           <Grid item key={language.census} xs={12} sm={6} md={4}>
-            <Card
-              sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            <Link
+              to={{
+                pathname: '/census',
+                search: `?lang=${selected}`
+              }}
+              style={{ textDecoration: 'none' }}
             >
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  maxHeight: 150,
-                }}
-                image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/lime.png"
-                alt="random"
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {language.census}
-                </Typography>
-                <Typography>
-                  {language.census}
-                </Typography>
-              </CardContent>
-            </Card>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    // 16:9
+                    maxHeight: 150,
+                  }}
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashcensus.png"
+                  alt="random"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {language.census}
+                  </Typography>
+                  <Typography>
+                    {language.censusdescription}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           </Grid>
           <Grid item key={language.sms} xs={12} sm={6} md={4}>
             <Card

@@ -133,73 +133,14 @@ function PersonalData({ repos, selected, activeStep, onHandleNext }) {
             <Grid item xs={6} sm={3}>
               <p> Clarke </p>
             </Grid>
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={3} sm={3}>
               <h4> {language.address} </h4>
             </Grid>
-            <Grid item xs={18} sm={9}>
+            <Grid item xs={9} sm={9}>
               <p> Manuel Lardizabal Ibilbidea, 1, 20018 Donostia, Gipuzkoa </p>
             </Grid>
-            {/*<Grid item xs={12} sm={6}>
-              <ButtonGroup variant="text" ref={anchorRef} aria-label="split button">
-                <Button
-                  sx={{ mt: 1.5 }}
-                  size="medium"
-                  aria-controls={open ? 'split-button-menu' : undefined}
-                  aria-expanded={open ? 'true' : undefined}
-                  aria-label="select merge strategy"
-                  aria-haspopup="menu"
-                  onClick={handleToggle}
-                >
-                  <ArrowDropDownIcon />
-                  &nbsp;&nbsp;{options[selectedIndex]}
-                </Button>
-              </ButtonGroup>
-              <Popper
-                open={open}
-                anchorEl={anchorRef.current}
-                role={undefined}
-                transition
-                disablePortal
-              >
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    style={{
-                      transformOrigin:
-                        placement === 'bottom' ? 'center top' : 'center bottom',
-                    }}
-                  >
-                    <Paper>
-                      <ClickAwayListener onClickAway={handleClose}>
-                        <MenuList id="split-button-menu">
-                          {options.map((option, index) => (
-                            <MenuItem
-                              key={option}
-                              selected={index === selectedIndex}
-                              onClick={(event) => handleMenuItemClick(event, index)}
-                            >
-                              {option}
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                label="Use this address for payment details"
-              />
-            </Grid>*/}
           </Grid>
           <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-{/*            {activeStep !== 0 && (
-              <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                Back
-              </Button>*/}
             <Button
               variant="contained"
               onClick={() => {onHandleNext()}}
@@ -252,7 +193,7 @@ function PaymentForm ({ repos, selected, activeStep, onHandleNext, onHandleBack 
             {language.accountnumber}
           </Typography>
           <Grid container spacing={3}>
-            <Grid item xs={24} md={12}>
+            <Grid item xs={9} md={9}>
               <TextField
                 required
                 id="cardName"
@@ -393,20 +334,20 @@ function Final({ repos, selected, activeStep, onHandleNext, onHandleBack }) {
             {language.confirmationdescription}
           </Typography>
           <Link
-                to={{
-                  pathname: '/',
-                  search: `?lang=${selected}`
-                }}
+              to={{
+                pathname: '/',
+                search: `?lang=${selected}`
+              }}
+            >
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
               >
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  {language.backtologin}
-                </Button>
-            </Link>
+                {language.backtologin}
+              </Button>
+          </Link>
         </Paper>
       </Container>
     </ThemeProvider>
