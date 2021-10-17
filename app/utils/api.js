@@ -1,5 +1,5 @@
 export function fetchLanguageRepos () {
-  const endpoint = 'app/languagesdata.json'
+  const endpoint = 'https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/languagesdata.json'
 
   return fetch(endpoint)
     .then((res) => res.json())
