@@ -93,7 +93,7 @@ function RecordContent({ repos, selected }) {
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.physics}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -104,7 +104,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.dataandalgorithms}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -115,7 +115,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.computerarchitecture}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -126,7 +126,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.operatingsystems}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -155,7 +155,7 @@ function RecordContent({ repos, selected }) {
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.operationresearch}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -166,7 +166,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.languagecomputationss}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -177,7 +177,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.websystems}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -217,7 +217,7 @@ function RecordContent({ repos, selected }) {
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.computernetworks}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -228,7 +228,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.personcomputer}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -239,7 +239,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.embeddedsystems}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -250,7 +250,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.softwareengineering}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -279,7 +279,7 @@ function RecordContent({ repos, selected }) {
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.computergraphics}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -290,7 +290,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.distributedsystems}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -301,7 +301,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.itsecurity}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>
@@ -312,7 +312,7 @@ function RecordContent({ repos, selected }) {
                           <TableCell>1</TableCell>
                         </TableRow>
                         <TableRow>
-                          <TableCell>{language.databases}</TableCell>
+                          <TableCell>{language.softwaretools}</TableCell>
                           <TableCell>2014/15</TableCell>
                           <TableCell>61</TableCell>
                           <TableCell>{language.mandatory}</TableCell>

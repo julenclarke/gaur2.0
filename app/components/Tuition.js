@@ -112,7 +112,7 @@ function TuitionContent({ repos, selected }) {
                           <TableCell>{language.informaticsengineering}</TableCell>
                           <TableCell>{language.opened}</TableCell>
                           <TableCell>2014/09/03</TableCell>
-                          <TableCell>2014/09/03</TableCell>
+                          <TableCell>2021/10/07</TableCell>
                           <TableCell>
                             <Button
                               variant="contained"

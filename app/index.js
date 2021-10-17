@@ -7,7 +7,7 @@ import Dashboard from './components/Dashboard'
 import Profile from './components/Profile'
 import Record from './components/Record'
 import ForgotPass from './components/ForgotPass'
-import Careers from './components/Careers'
+import Scholarship from './components/Scholarship'
 import Census from './components/Census'
 import Sms from './components/Sms'
 import Tuition from './components/Tuition'
@@ -48,6 +48,10 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import Logout from '@mui/icons-material/Logout';
+import WorkIcon from '@mui/icons-material/Work';
+import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import SmsIcon from '@mui/icons-material/Sms';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 // Component is concerned about State, Lifecycle and UI
 // State
@@ -193,7 +197,7 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
       language  = {
         "dashboard": "Kontrol-panela",
         "studyplan": "Ikasketa-planak",
-        "careers": "Lan Mundura Trantsizioa bekak",
+        "scholarship": "Lan Mundura Trantsizioa bekak",
         "census": "Errolda",
         "sms": "SMS Zerbitzua",
         "tuitions": "Matrikulak",
@@ -211,7 +215,7 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
       language = {
         "dashboard": "Panel de control",
         "studyplan": "Plan de estudios",
-        "careers": "Becas a",
+        "scholarship": "Becas de Transición al mundo laboral",
         "census": "Censo",
         "sms": "Servicio SMS",
         "tuitions": "Matrículas",
@@ -229,7 +233,7 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
       language = {
         "dashboard": "Dashboard",
         "studyplan": "Study plan",
-        "careers": "Careers",
+        "scholarship": "Scholarships for Transition to the world of work",
         "census": "Census",
         "sms": "SMS Service",
         "tuitions": "Tuitions",
@@ -465,7 +469,7 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
             </Link>
             <Link
               to={{
-                pathname: '/record',
+                pathname: '/scholarship',
                 search: `?lang=${selected}`
               }}
               style={{
@@ -473,16 +477,16 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
                 textDecoration: 'none'
               }}
             >
-              <ListItem button key={language.careers}>
+              <ListItem button key={language.scholarship}>
                 <ListItemIcon>
-                  <FormatAlignJustifyIcon />
+                  <WorkIcon />
                 </ListItemIcon>
-                <ListItemText primary={language.careers} />
+                <ListItemText primary={language.scholarship} />
               </ListItem>
             </Link>
             <Link
               to={{
-                pathname: '/careers',
+                pathname: '/census',
                 search: `?lang=${selected}`
               }}
               style={{
@@ -492,14 +496,14 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
             >
               <ListItem button key={language.census}>
                 <ListItemIcon>
-                  <FormatAlignJustifyIcon />
+                  <HowToVoteIcon />
                 </ListItemIcon>
                 <ListItemText primary={language.census} />
               </ListItem>
             </Link>
             <Link
               to={{
-                pathname: '/record',
+                pathname: '/sms',
                 search: `?lang=${selected}`
               }}
               style={{
@@ -509,14 +513,14 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
             >
               <ListItem button key={language.sms}>
                 <ListItemIcon>
-                  <FormatAlignJustifyIcon />
+                  <SmsIcon />
                 </ListItemIcon>
                 <ListItemText primary={language.sms} />
               </ListItem>
             </Link>
             <Link
               to={{
-                pathname: '/record',
+                pathname: '/tuitions',
                 search: `?lang=${selected}`
               }}
               style={{
@@ -526,12 +530,12 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
             >
               <ListItem button key={language.tuitions}>
                 <ListItemIcon>
-                  <FormatAlignJustifyIcon />
+                  <DescriptionIcon />
                 </ListItemIcon>
                 <ListItemText primary={language.tuitions} />
               </ListItem>
             </Link>
-            <Link
+            {/*<Link
               to={{
                 pathname: '/record',
                 search: `?lang=${selected}`
@@ -564,7 +568,7 @@ function NavLogged ({ selected, onUpdateLanguage, onLogOut }) {
                 </ListItemIcon>
                 <ListItemText primary={language.exams} />
               </ListItem>
-            </Link>
+            </Link>*/}
           </List>
           <Divider />
           <List>
@@ -741,9 +745,9 @@ class App extends React.Component {
                 )}
               />
               <Route
-                path='/careers'
+                path='/scholarship'
                 render={(props) => (
-                  <Careers
+                  <Scholarship
                     repos={repos}
                     selectedLanguage={selectedLanguage}
                   />

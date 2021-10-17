@@ -96,7 +96,7 @@ function PersonalData({ repos, selected, activeStep, onHandleNext }) {
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            {language.careers}
+            {language.scholarshipapplication}
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -180,7 +180,7 @@ function PaymentForm ({ repos, selected, activeStep, onHandleNext, onHandleBack 
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            {language.careers}
+            {language.scholarshipapplication}
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -248,7 +248,7 @@ function Review({ repos, selected, activeStep, onHandleNext, onHandleBack }) {
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            {language.careers}
+            {language.scholarshipapplication}
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -318,7 +318,7 @@ function Final({ repos, selected, activeStep, onHandleNext, onHandleBack }) {
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            {language.careers}
+            {language.scholarship}
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -354,7 +354,7 @@ function Final({ repos, selected, activeStep, onHandleNext, onHandleBack }) {
   )
 }
 
-export default class Careers extends React.Component {
+export default class Scholarship extends React.Component {
   constructor(props) {
     super(props)
 

@@ -103,10 +103,10 @@ function ReposGrid ({ repos, selected }) {
               </Card>
             </Link>
           </Grid>
-          <Grid item key={language.careers} xs={12} sm={6} md={4}>
+          <Grid item key={language.scholarship} xs={12} sm={6} md={4}>
             <Link
               to={{
-                pathname: '/careers',
+                pathname: '/scholarship',
                 search: `?lang=${selected}`
               }}
               style={{ textDecoration: 'none' }}
@@ -120,15 +120,15 @@ function ReposGrid ({ repos, selected }) {
                     // 16:9
                     maxHeight: 150,
                   }}
-                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashcareers.png"
+                  image="https://raw.githubusercontent.com/julenclarke/gaur2.0/master/app/img/dashscholarship.png"
                   alt="random"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    {language.careers}
+                    {language.scholarship}
                   </Typography>
                   <Typography>
-                    {language.careersdescription}
+                    {language.scholarshipdescription}
                   </Typography>
                 </CardContent>
               </Card>
@@ -227,7 +227,7 @@ function ReposGrid ({ repos, selected }) {
               </Card>
             </Link>
           </Grid>
-          <Grid item key={language.surveys} xs={12} sm={6} md={4}>
+{/*          <Grid item key={language.surveys} xs={12} sm={6} md={4}>
             <Card
               sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
@@ -295,7 +295,7 @@ function ReposGrid ({ repos, selected }) {
                 </Typography>
               </CardContent>
             </Card>
-          </Grid>
+          </Grid>*/}
         </Grid>
       </Container>
     </ThemeProvider>

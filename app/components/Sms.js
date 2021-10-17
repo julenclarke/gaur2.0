@@ -245,18 +245,11 @@ export default class Sms extends React.Component {
     }
 
     this.handleNext = this.handleNext.bind(this)
-    this.handleBack = this.handleBack.bind(this)
   }
 
   handleNext (state) {
     this.setState((state) => {
       return {step: state.step + 1}
-    })
-  }
-
-  handleBack (state) {
-    this.setState((state) => {
-      return {step: state.step - 1}
     })
   }
 
